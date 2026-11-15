@@ -1,0 +1,95 @@
+/* Звернення: форма та вкладки видів звернення */
+
+.fm {
+	max-width: 720px;
+	margin: 0 auto;
+	padding: var(--space-lg);
+}
+.fm h4 {
+	margin: var(--space-md) 0 var(--space-xs);
+}
+.types {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: var(--space-sm);
+}
+.types button {
+	padding: var(--space-xs);
+	border: 1px solid var(--color-accent);
+	text-align: left;
+	font-size: 14px;
+}
+.types b {
+	display: block;
+	font: var(--fw-regular) 14px var(--font-head);
+	color: var(--color-accent);
+	text-transform: uppercase;
+}
+.types .on {
+	background: var(--color-accent);
+	color: var(--color-bg);
+}
+.types .on b {
+	color: var(--color-bg);
+}
+.g2 {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: var(--space-sm) var(--space-lg);
+}
+.fm input:not([type='checkbox']) {
+	width: 100%;
+	padding: 8px 0;
+	border-bottom: 1px solid var(--color-accent);
+	outline: 0;
+}
+.fm select,
+.fm textarea {
+	width: 100%;
+	padding: 8px;
+	border: 1px solid var(--color-accent);
+	outline: 0;
+}
+.fm select {
+	appearance: none;
+	background: url(../img/icons/chevron.svg) no-repeat right 10px center;
+}
+.fm select option {
+	background: var(--color-bg);
+}
+.fm textarea {
+	background: rgba(204, 204, 0, 0.15);
+	resize: vertical;
+}
+.lb {
+	display: block;
+	margin-top: var(--space-sm);
+	font: 14px var(--font-head);
+	color: var(--color-accent);
+}
+.chk {
+	display: flex;
+	align-items: center;
+	gap: var(--space-xs);
+	margin: var(--space-sm) 0 4px;
+}
+.chk input {
+	width: 20px;
+	height: 20px;
+	accent-color: var(--color-accent);
+}
+.err {
+	display: block;
+	min-height: 14px;
+	font-size: 12px;
+	color: var(--color-error);
+}
+.btn.c {
+	display: flex;
+	margin: var(--space-xs) auto 0;
+}
+.okm {
+	margin-top: var(--space-sm);
+	text-align: center;
+	color: var(--color-accent);
+}

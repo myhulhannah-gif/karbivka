@@ -1,0 +1,97 @@
+/* Шапка з меню, бургер і футер (спільні для всіх сторінок) */
+
+.top {
+	padding: var(--space-md) var(--space-side) var(--space-sm);
+	border-bottom: 1px solid var(--color-accent);
+	text-align: center;
+}
+.burger {
+	display: none;
+	margin: 0 auto;
+	padding: 6px 12px;
+	border: 1px solid var(--color-accent);
+}
+.burger img {
+	width: 26px;
+}
+nav {
+	display: flex;
+	justify-content: center;
+	gap: clamp(20px, 3.5vw, var(--space-lg));
+}
+nav a {
+	position: relative;
+	padding-bottom: 6px;
+	font-family: var(--font-menu);
+	font-size: clamp(18px, 2.1vw, var(--size-menu));
+	text-transform: uppercase;
+	color: var(--color-accent);
+}
+nav a.on {
+	color: var(--color-white);
+	border-bottom: 2px solid var(--color-white);
+}
+nav a.on::after {
+	content: '◆';
+	position: absolute;
+	left: 50%;
+	bottom: -9px;
+	transform: translateX(-50%);
+	padding: 0 4px;
+	background: var(--color-bg);
+	color: var(--color-white);
+	font-size: 9px;
+	line-height: 1;
+}
+.ft {
+	position: relative;
+	border-top: 1px solid var(--color-accent);
+	background: var(--color-bg-dark);
+	padding-top: var(--space-lg);
+}
+.ft::before {
+	content: '◆';
+	position: absolute;
+	top: -7px;
+	left: 50%;
+	transform: translateX(-50%);
+	color: var(--color-accent);
+	font-size: 10px;
+	line-height: 1;
+}
+.fg {
+	display: grid;
+	grid-template-columns: 1fr 280px 320px;
+	align-items: center;
+}
+.fg > div {
+	padding: var(--space-xs) var(--space-md);
+}
+.fg > div:first-child {
+	padding-left: 0;
+}
+.fg h3 {
+	font-size: 28px;
+	margin-bottom: var(--space-xs);
+}
+.fc {
+	border-left: 1px solid var(--color-accent);
+}
+.fc h4 {
+	margin-bottom: var(--space-xs);
+}
+.fc a,
+.fc p {
+	display: block;
+	margin: var(--space-xs) 0;
+}
+.fc a::before,
+.fc p::before {
+	content: '◆';
+	color: var(--color-accent);
+	margin-right: var(--space-xs);
+}
+.cp {
+	padding: var(--space-md);
+	text-align: center;
+}

@@ -1,0 +1,97 @@
+/*всі елементи: обнулення внутр. та зовн. відступів */
+* {
+	padding: 0px;
+	margin: 0px;
+	border: none;
+}
+
+/*скидання авто додавання padding та border при зміні розміру елементів*/
+*,
+*::before,*::after {
+	box-sizing: border-box;
+}
+
+/*Прибирання підкреслень на посиланнях при звичайному та відвіданому*/
+a,a:link, a:visited {
+	text-decoration: none;
+}
+
+/*Прибирання підкреслення при наведенні курсора*/
+a:hover {
+	text-decoration: none;
+}
+
+/*Явно вказує що ці елементи мають повдитися як блочні елементи*/
+aside, nav, footer, header, section, main {
+	display: block;
+}
+
+/*Прибирає стандартні розміри та жирність шрифту*/
+h1, h2, h3, h4, h5, h6, p {
+	font-size: inherit;
+	font-weight: inherit;
+}
+
+/*Прибирання маркерів (крапки та цифри)*/
+/*ul, ul li {
+	list-style: none;
+}*/
+
+/*Прибирає проміжок знизу від картинки*/
+img {
+	vertical-align: top;
+}
+
+/*Прибирає адаптивність картинки до контейнера (картинка ніколи не буде ширшою за контейнер)*/
+img, svg {
+	max-width: 100%;
+	height: auto;
+}
+
+/*Прибирає курсив з адреси (який стоїть за замовчуванням)*/
+address {
+	font-style: normal;
+}
+
+/*Для елементів форми прибирає стандартний шрифт браузера і робить фон прозорим*/
+input, textarea, button, select {
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
+	background-color: transparent;
+}
+
+/*Прибирає вбудовану керпку очистити поле (хрестик) у Microsoft*/
+input::-ms-clear {
+	display: none;
+}
+
+/*Прибирає стандартну тінь і встановлює курсор руки при наведенні*/
+button, input[type="submit"] {
+	display: inline-block;
+	box-shadow: none;
+	background-color: transparent;
+	background: none;
+	cursor: pointer;
+}
+
+/*Прибирає стандартну синю чи чорну рамку-обводку*/
+input:focus, input:active, button:focus, button:active {
+	outline: none;
+}
+
+/*Для Firefox прибирає внутр відступ і рамку у кнопці*/
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+
+/*Встановлює курсор-руки при наведенні для даного тегу*/
+label {
+	cursor: pointer;
+}
+
+/*Робить явно блочним елементом*/
+legend {
+	display: block;
+}

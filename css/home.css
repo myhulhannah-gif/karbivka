@@ -1,0 +1,240 @@
+/* Головна: банер, звернення голови, новини та події */
+
+.ban {
+	display: grid;
+	grid-template-columns: 140px 1fr 30px 320px;
+	align-items: center;
+	gap: var(--space-sm);
+	margin-block: var(--space-sm);
+}
+.fan {
+	width: 130px;
+	height: 100px;
+	fill: none;
+	stroke: var(--color-accent);
+	stroke-width: 1;
+}
+.bt {
+	text-align: center;
+}
+.bt h1 {
+	font-size: clamp(32px, 4vw, var(--size-h2));
+}
+.bt .dv {
+	width: 60%;
+	margin: var(--space-xs) auto;
+}
+.bt h2 {
+	font: var(--fw-regular) 24px var(--font-menu);
+	color: var(--color-white);
+	text-transform: none;
+}
+.bt p {
+	font: var(--fw-regular) 28px var(--font-head);
+	color: var(--color-accent);
+	text-transform: uppercase;
+}
+.sep {
+	position: relative;
+	justify-self: center;
+	align-self: stretch;
+	width: 8px;
+	border-inline: 1px solid var(--color-accent);
+}
+.sep::after {
+	content: '◆\A◆';
+	white-space: pre;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 2px 0;
+	background: var(--color-bg);
+	color: var(--color-accent);
+	font-size: 10px;
+	line-height: 1.1;
+}
+.mapbox {
+	position: relative;
+}
+.map {
+	width: 100%;
+	height: 130px;
+	fill: var(--color-bg-dark);
+	stroke: var(--color-accent);
+	stroke-width: 2;
+}
+.mapbox small {
+	position: absolute;
+	left: 42%;
+	top: 45%;
+	font-size: 12px;
+}
+.addr {
+	display: grid;
+	grid-template-columns: 400px 1fr;
+	gap: 60px;
+	padding-block: var(--space-lg);
+}
+.mayor img {
+	aspect-ratio: 4/5;
+}
+.mayor figcaption {
+	margin-top: var(--space-sm);
+	padding: var(--space-xs) 0;
+	border-block: 1px solid var(--color-accent);
+	text-align: center;
+}
+.mayor span {
+	display: block;
+	font-family: var(--font-menu);
+}
+.mayor b {
+	display: block;
+	margin-top: var(--space-xs);
+	font: var(--fw-regular) 30px var(--font-head);
+	color: var(--color-accent);
+	text-transform: uppercase;
+}
+.mtxt {
+	border-top: 1px solid var(--color-accent);
+	padding-top: var(--space-md);
+}
+.mtxt .ttl {
+	color: var(--color-white);
+	font-size: 30px;
+}
+.mtxt p {
+	margin: var(--space-sm) 0;
+}
+.mtxt .btn {
+	display: flex;
+	width: max-content;
+	margin: var(--space-md) auto 0;
+}
+.two {
+	position: relative;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	padding-bottom: var(--space-lg);
+}
+.two::before {
+	content: '';
+	position: absolute;
+	left: 50%;
+	top: 0;
+	bottom: 0;
+	border-left: 1px solid var(--color-accent);
+}
+.two > div {
+	padding: var(--space-md) var(--space-lg);
+}
+.two > div:first-child {
+	padding-left: 0;
+}
+.two > div:last-child {
+	padding-right: 0;
+}
+.hd {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	margin-bottom: var(--space-md);
+}
+.hd h2 {
+	color: var(--color-white);
+}
+.hd a {
+	font: 16px var(--font-head);
+	color: var(--color-accent);
+}
+.nw {
+	display: grid;
+	grid-template-columns: 100px 1fr;
+	gap: var(--space-sm);
+	padding: var(--space-sm) 0;
+	border-bottom: 1px solid rgba(204, 204, 0, 0.5);
+}
+.nw:last-child {
+	border: 0;
+}
+.nw .pframe {
+	align-self: start;
+}
+.nw .pframe img {
+	height: 90px;
+}
+.nw small {
+	font: var(--fw-regular) 16px var(--font-head);
+	color: var(--color-accent);
+}
+.nw h3 {
+	margin: 4px 0;
+	font: var(--fw-regular) 16px var(--font-menu);
+	color: var(--color-white);
+	text-transform: none;
+}
+.nw p {
+	font-size: 16px;
+}
+.nw a {
+	display: block;
+	text-align: right;
+	font: 16px var(--font-head);
+	color: var(--color-accent);
+}
+.evt {
+	position: relative;
+	display: grid;
+	grid-template-columns: 100px 1fr;
+	gap: var(--space-sm);
+	margin-bottom: var(--space-md);
+}
+.evt:nth-of-type(1) {
+	margin-top: var(--space-lg);
+}
+.evt .tag {
+	position: absolute;
+	top: -26px;
+	left: var(--space-sm);
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding: 2px 12px;
+	border-radius: 8px 8px 0 0;
+	background: var(--color-accent);
+	color: var(--color-bg);
+	font-size: 13px;
+}
+.dt {
+	text-align: center;
+	font: var(--fw-semibold) 20px var(--font-head);
+	color: var(--color-accent);
+}
+.dt b {
+	display: block;
+	font: var(--fw-semibold) var(--size-num)/1.1 var(--font-num);
+	color: var(--color-white);
+}
+.dt b::after {
+	content: '';
+	display: block;
+	width: 36px;
+	margin: 6px auto 0;
+	border-bottom: 2px solid var(--color-white);
+}
+.evt h3 {
+	font: 16px var(--font-menu);
+	color: var(--color-white);
+	text-transform: none;
+}
+.evt p {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 6px 0;
+	font-size: 16px;
+}
+.evt .btn {
+	margin: var(--space-xs) 0 0 auto;
+}

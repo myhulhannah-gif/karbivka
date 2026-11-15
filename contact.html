@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="uk">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>Звернення та контакти — Карбівська сільська рада</title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet" href="css/components.css" />
+		<link rel="stylesheet" href="css/layout.css" />
+		<link rel="stylesheet" href="css/contact.css" />
+		<link rel="stylesheet" href="css/responsive.css" />
+	</head>
+	<body data-p="contact">
+		<!-- Шапка сайту -->
+		<header class="top">
+			<button class="burger" aria-label="Меню">
+				<img class="" src="img/icons/menu.svg" alt="" />
+			</button>
+			<nav id="nav">
+				<a href="index.html">Головна</a>
+				<a href="history.html">Історія селища</a>
+				<a href="services.html">Послуги ЦНАП</a>
+				<a href="contact.html" class="on">Звернення та контакти</a>
+			</nav>
+		</header>
+		<main>
+			<section class="sec alt">
+				<div class="wrap">
+					<h2 class="ttl">НАПИСАТИ ЗВЕРНЕННЯ</h2>
+					<div class="dv s"></div>
+					<form id="f" class="frame fm" novalidate>
+						<h4>Вид звернення</h4>
+						<div class="types" id="types">
+							<button type="button" data-t="0">
+								<b>Пропозиція</b>
+								Як зробити краще
+							</button>
+							<button type="button" data-t="1">
+								<b>Заява</b>
+								Реалізація права чи інтересу
+							</button>
+							<button type="button" data-t="2">
+								<b>Скарга</b>
+								Порушення прав
+							</button>
+							<button type="button" data-t="3">
+								<b>Запит на інформацію</b>
+								Публічна інформація
+							</button>
+						</div>
+						<h4>Про вас</h4>
+						<div class="g2">
+							<label>
+								<input name="name" placeholder="Прізвище, ім'я, по батькові" />
+								<span class="err"></span>
+							</label>
+							<label>
+								<input name="phone" placeholder="Телефон" />
+								<span class="err"></span>
+							</label>
+							<label>
+								<input name="email" placeholder="Електронна пошта" />
+								<span class="err"></span>
+							</label>
+							<label>
+								<input name="addr" placeholder="Поштова адреса" />
+								<span class="err"></span>
+							</label>
+						</div>
+						<h4>Суть питання</h4>
+						<label class="lb">
+							ТЕМА
+							<select name="topic"></select>
+							<span class="err"></span>
+						</label>
+						<label class="lb">
+							ТЕКСТ ЗВЕРНЕННЯ
+							<textarea
+								name="text"
+								rows="7"
+								placeholder="Що сталося, де і коли? Що ви пропонуєте або чого просите?"
+							></textarea>
+							<span class="err"></span>
+						</label>
+						<label class="chk">
+							<input type="checkbox" name="ok" />
+							Погоджуюся на обробку персональних даних для розгляду цього звернення.
+						</label>
+						<span class="err" id="eok"></span>
+						<button class="btn c" type="submit">НАДІСЛАТИ ЗВЕРНЕННЯ</button>
+						<p id="okm" class="okm" hidden>
+							Звернення надіслано. Відповідь надійде на вказану пошту.
+						</p>
+					</form>
+				</div>
+			</section>
+			<section class="sec">
+				<div class="wrap">
+					<h2 class="ttl">ІНШІ СПОСОБИ ЗВЕРНУТИСЯ</h2>
+					<div class="dv s"></div>
+					<div class="grid3 o">
+						<div class="card">
+							<h3>
+								<span class="dia"><img class="" src="img/icons/mail.svg" alt="" /></span>
+								ПОШТА
+							</h3>
+							<p>zvernennia@karbivkarada.com</p>
+							<p>Очікуйте відповідь на цю ж адресу.</p>
+						</div>
+						<div class="card">
+							<h3>
+								<span class="dia"><img class="" src="img/icons/phone.svg" alt="" /></span>
+								ТЕЛЕФОН
+							</h3>
+							<p>+38 (097) 123 45 67</p>
+							<p>Пн-Пт, 08:00-17:00</p>
+						</div>
+						<div class="card">
+							<h3>
+								<span class="dia"><img class="" src="img/icons/chat.svg" alt="" /></span>
+								МЕСЕНДЖЕРИ
+							</h3>
+							<p>Viber та Telegram за тим самим номером.</p>
+							<p></p>
+						</div>
+						<div class="card">
+							<h3>
+								<span class="dia"><img class="" src="img/icons/location.svg" alt="" /></span>
+								ЛИСТ І СКРИНЬКА
+							</h3>
+							<p>с. Карбівка, вул. Лісова, 12</p>
+							<p>Скринька на 1 поверсі біля входу.</p>
+						</div>
+						<div class="card">
+							<h3>
+								<span class="dia"><img class="" src="img/icons/mobile.svg" alt="" /></span>
+								ЧЕРЕЗ ДІЮ
+							</h3>
+							<p>Електронне звернення</p>
+							<p>До органів місцевого самоврядування з підписом.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<!-- Футер сайту -->
+		<footer class="ft">
+			<div class="wrap fg">
+				<div>
+					<h3>Карбівська сільська рада</h3>
+					<p>
+						<b>ОФІЦІЙНИЙ ПОРТАЛ ГРОМАДИ</b>
+						• Кіровоградська область
+					</p>
+				</div>
+				<div class="fc">
+					<h4>Швидкі посилання</h4>
+					<a href="index.html">Головна</a>
+					<a href="history.html">Історія селища</a>
+					<a href="services.html">Послуги ЦНАП</a>
+					<a href="contact.html">Звернення та контакти</a>
+				</div>
+				<div class="fc">
+					<h4>Контакти та графіки</h4>
+					<p>+38 (097) 123 45 67</p>
+					<p>вул. Лісова, 12, с. Карбівка</p>
+					<p>Пн-Пт: 08:00 - 17:00</p>
+				</div>
+			</div>
+			<p class="cp">© 2026 Ань &amp; Янь</p>
+		</footer>
+		<script src="js/common/utils.js"></script>
+		<script src="js/common/nav.js"></script>
+		<script src="js/data/topics.js"></script>
+		<script src="js/pages/contact.js"></script>
+	</body>
+</html>

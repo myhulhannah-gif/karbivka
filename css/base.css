@@ -1,0 +1,104 @@
+/* Шрифти з Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant:wght@500;600;700&family=Jost:wght@400;500;600&family=Libertinus+Serif:wght@400;600&family=Nunito:wght@600;700&display=swap");
+
+:root {
+	/* ширина сторінки */
+	--width: 1440px;
+	--content-width: 1190px;
+
+	/* кольори */
+	--color-accent: #CCCC00;
+	--color-bg: #1E1E1E;
+	--color-bg-dark: #141414;
+	--color-white: #FFFFFF;
+	--color-text: #FFFFFF;
+	--color-card: #222222;
+	--color-muted: #B9B9A8;
+	--color-error: #FF7A6B;
+
+	/* шрифти */
+	--font-head: "Cormorant", Georgia, serif;
+	--font-menu: "Libertinus Serif", Georgia, serif;
+	--font-text: "Jost", Arial, sans-serif;
+	--font-num: "Nunito", Arial, sans-serif;
+
+	/* жирність шрифту */
+	--fw-regular: 400;
+	--fw-medium: 500;
+	--fw-semibold: 600;
+	--fw-bold: 700;
+
+	/* розміри тексту */
+	--size-menu: 30px; /* пункти меню */
+	--size-h1: 48px; /* назва сайту в банері */
+	--size-h2: 40px; /* заголовки секцій */
+	--size-h3: 22px; /* підзаголовки */
+	--size-num: 40px; /* числа (дати подій) */
+	--size-p: 18px; /* основний текст */
+
+	/* відступи */
+	--space-xs: 10px;
+	--space-sm: 15px;
+	--space-md: 25px;
+	--space-lg: 40px;
+	--space-side: 125px; /* бокові поля контенту */
+	--space-top: 40px; /* відступ зверху */
+
+	/* скруглення кутів */
+	--radius-sm: 8px;
+	--radius-md: 10px;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: var(--font-text);
+	font-weight: var(--fw-regular);
+	font-size: var(--size-p);
+	line-height: 1.6;
+	color: var(--color-text);
+	background: var(--color-bg);
+	overflow-x: hidden;
+}
+
+a {
+	color: inherit;
+}
+
+h1, h2, h3, h4 {
+	font-family: var(--font-head);
+	font-weight: var(--fw-semibold);
+	line-height: 1.2;
+	color: var(--color-accent);
+	text-transform: uppercase;
+}
+
+h1 { font-size: var(--size-h1); }
+h2 { font-size: var(--size-h2); }
+h3 { font-size: var(--size-h3); }
+h4 { font-size: var(--size-p); }
+
+em {
+	font-style: normal;
+	color: var(--color-accent);
+}
+
+/* Контейнер контенту з боковими полями */
+.wrap {
+	max-width: var(--width);
+	margin: 0 auto;
+	padding-inline: var(--space-side);
+}
+
+/* Вертикальні відступи секцій */
+.sec {
+	padding-block: var(--space-lg);
+}
+
+/* Темний фон секції */
+.alt {
+	background: var(--color-bg-dark);
+	--bg-sec: var(--color-bg-dark);
+}
