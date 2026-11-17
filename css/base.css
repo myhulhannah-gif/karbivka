@@ -102,3 +102,7 @@ em {
 	background: var(--color-bg-dark);
 	--bg-sec: var(--color-bg-dark);
 }
+
+[hidden] {
+	display: none !important;
+}

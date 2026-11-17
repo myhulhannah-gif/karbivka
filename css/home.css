@@ -20,7 +20,6 @@
 	text-transform: uppercase;
 }
 
-/* Банер: фото 1443 на 240 як фон, текст по центру вільної частини */
 .ban {
 	display: flex;
 	align-items: center;
@@ -93,7 +92,7 @@
 	background: var(--color-bg-dark);
 }
 .two {
-	--row-h: 210px; /* висота рядка: підставте виміряну висоту картки .evt */
+	--row-h: 210px;
 	position: relative;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -262,4 +261,17 @@
 	margin: 10px 0 0 auto;
 	padding: 12px 10px;
 	font: var(--fw-semibold) 22px/1 var(--font-menu);
+}
+
+.nw a,
+.hd a {
+	text-decoration: underline;
+	text-decoration-color: transparent;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 4px;
+	transition: text-decoration-color 0.2s;
+}
+.nw a:hover,
+.hd a:hover {
+	text-decoration-color: var(--color-accent);
 }
