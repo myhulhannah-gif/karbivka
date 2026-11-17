@@ -1,19 +1,5 @@
 /* Головна: банер, звернення голови, новини та події */
 
-.ban {
-	display: grid;
-	grid-template-columns: 140px 1fr 30px 320px;
-	align-items: center;
-	gap: var(--space-sm);
-	margin-block: var(--space-sm);
-}
-.fan {
-	width: 130px;
-	height: 100px;
-	fill: none;
-	stroke: var(--color-accent);
-	stroke-width: 1;
-}
 .bt {
 	text-align: center;
 }
@@ -34,42 +20,20 @@
 	color: var(--color-accent);
 	text-transform: uppercase;
 }
-.sep {
-	position: relative;
-	justify-self: center;
-	align-self: stretch;
-	width: 8px;
-	border-inline: 1px solid var(--color-accent);
-}
-.sep::after {
-	content: '◆\A◆';
-	white-space: pre;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	padding: 2px 0;
-	background: var(--color-bg);
-	color: var(--color-accent);
-	font-size: 10px;
-	line-height: 1.1;
-}
-.mapbox {
-	position: relative;
-}
-.map {
+
+/* Банер: фото 1443 на 240 як фон, текст по центру вільної частини */
+.ban {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width: 100%;
-	height: 130px;
-	fill: var(--color-bg-dark);
-	stroke: var(--color-accent);
-	stroke-width: 2;
+	max-width: var(--width);
+	aspect-ratio: 1443 / 240;
+	margin: var(--space-sm) auto;
+	padding: 0 27.6% 0 8.3%;
+	background: url("../img/header.png") center / 100% 100% no-repeat;
 }
-.mapbox small {
-	position: absolute;
-	left: 42%;
-	top: 45%;
-	font-size: 12px;
-}
+
 .addr {
 	display: grid;
 	grid-template-columns: 400px 1fr;
@@ -82,7 +46,7 @@
 .mayor figcaption {
 	margin-top: var(--space-sm);
 	padding: var(--space-xs) 0;
-	border-block: 1px solid var(--color-accent);
+	border-block: 2px solid var(--color-accent);
 	text-align: center;
 }
 .mayor span {
@@ -97,7 +61,7 @@
 	text-transform: uppercase;
 }
 .mtxt {
-	border-top: 1px solid var(--color-accent);
+	border-top: 2px solid var(--color-accent);
 	padding-top: var(--space-md);
 }
 .mtxt .ttl {
@@ -124,7 +88,7 @@
 	left: 50%;
 	top: 0;
 	bottom: 0;
-	border-left: 1px solid var(--color-accent);
+	border-left: 2px solid var(--color-accent);
 }
 .two > div {
 	padding: var(--space-md) var(--space-lg);
@@ -153,7 +117,7 @@
 	grid-template-columns: 100px 1fr;
 	gap: var(--space-sm);
 	padding: var(--space-sm) 0;
-	border-bottom: 1px solid rgba(204, 204, 0, 0.5);
+	border-bottom: 2px solid #3D3D3D;
 }
 .nw:last-child {
 	border: 0;

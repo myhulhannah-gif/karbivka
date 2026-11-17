@@ -4,9 +4,6 @@
 	:root {
 		--space-side: 40px;
 	}
-	.ban {
-		grid-template-columns: 100px 1fr 24px 240px;
-	}
 	.addr {
 		grid-template-columns: 320px 1fr;
 		gap: var(--space-lg);
@@ -25,6 +22,7 @@
 	nav {
 		display: none;
 		flex-direction: column;
+		align-items: center;
 		gap: 0;
 		margin-top: var(--space-sm);
 	}
@@ -34,10 +32,6 @@
 	nav a {
 		padding: 10px 0;
 	}
-	nav a.on::after {
-		display: none;
-	}
-	.ban,
 	.addr,
 	.two,
 	.ev,
@@ -45,8 +39,14 @@
 	.fg {
 		grid-template-columns: 1fr;
 	}
-	.fan,
-	.sep,
+
+	.ban {
+	aspect-ratio: auto;
+	min-height: 200px;
+	padding: var(--space-md);
+	background-size: cover;
+	}
+
 	.two::before {
 		display: none;
 	}

@@ -1,97 +1,145 @@
 /* Шапка з меню, бургер і футер (спільні для всіх сторінок) */
 
+
 .top {
-	padding: var(--space-md) var(--space-side) var(--space-sm);
-	border-bottom: 1px solid var(--color-accent);
-	text-align: center;
+    padding: var(--space-md) var(--space-side) var(--space-sm);
+    border-bottom: 1px solid var(--color-accent);
+    text-align: center;
 }
 .burger {
-	display: none;
-	margin: 0 auto;
-	padding: 6px 12px;
-	border: 1px solid var(--color-accent);
+    display: none;
+    margin: 0 auto;
+    padding: 6px 12px;
+    border: 1px solid var(--color-accent);
 }
 .burger img {
-	width: 26px;
+    width: 26px;
 }
 nav {
-	display: flex;
-	justify-content: center;
-	gap: clamp(20px, 3.5vw, var(--space-lg));
+    display: flex;
+    justify-content: center;
+    gap: clamp(20px, 3.5vw, var(--space-lg));
 }
 nav a {
-	position: relative;
-	padding-bottom: 6px;
-	font-family: var(--font-menu);
-	font-size: clamp(18px, 2.1vw, var(--size-menu));
-	text-transform: uppercase;
-	color: var(--color-accent);
+    position: relative;
+    padding-bottom: 6px;
+    font-family: var(--font-menu);
+    font-size: clamp(18px, 2.1vw, var(--size-menu));
+    text-transform: uppercase;
+    color: var(--color-accent);
 }
+
+
+/* Підкреслення активного пункту */
 nav a.on {
-	color: var(--color-white);
-	border-bottom: 2px solid var(--color-white);
+    --nav-gap: 10px;
+    color: var(--color-white);
+    border-bottom: 0;
+    position: relative;
 }
+
+
+nav a.on::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: calc(var(--nav-gap) - 4.5px);
+    height: 9px;
+    background:
+        linear-gradient(var(--color-white), var(--color-white)) left center / calc(50% - 7.5px) 2px no-repeat,
+        linear-gradient(var(--color-white), var(--color-white)) right center / calc(50% - 7.5px) 2px no-repeat;
+}
+
+
 nav a.on::after {
-	content: '◆';
-	position: absolute;
-	left: 50%;
-	bottom: -9px;
-	transform: translateX(-50%);
-	padding: 0 4px;
-	background: var(--color-bg);
-	color: var(--color-white);
-	font-size: 9px;
-	line-height: 1;
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: calc(var(--nav-gap) - 4.25px);
+    width: 8.5px;
+    height: 8.5px;
+    padding: 0;
+    background: var(--color-white);
+    transform: translateX(-50%);
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
 }
+
+
 .ft {
-	position: relative;
-	border-top: 1px solid var(--color-accent);
-	background: var(--color-bg-dark);
-	padding-top: var(--space-lg);
+    position: relative;
+    background: var(--color-bg-dark);
+    padding-top: var(--space-lg);
+    /* border-top прибрано, лінію тепер малює ::before */
 }
+
+
 .ft::before {
-	content: '◆';
-	position: absolute;
-	top: -7px;
-	left: 50%;
-	transform: translateX(-50%);
-	color: var(--color-accent);
-	font-size: 10px;
-	line-height: 1;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    transform: translateY(-50%);
+    background: var(--color-accent);
+    --ft-dia: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='7.07' height='7.07' viewBox='0 0 7.07 7.07'><polygon points='3.535,0 7.07,3.535 3.535,7.07 0,3.535' fill='black'/></svg>");
+    -webkit-mask:
+        linear-gradient(#000, #000) left center / calc(50% - 8px) 2px no-repeat,
+        linear-gradient(#000, #000) right center / calc(50% - 8px) 2px no-repeat,
+        var(--ft-dia) center / 7.07px 7.07px no-repeat;
+    mask:
+        linear-gradient(#000, #000) left center / calc(50% - 8px) 2px no-repeat,
+        linear-gradient(#000, #000) right center / calc(50% - 8px) 2px no-repeat,
+        var(--ft-dia) center / 7.07px 7.07px no-repeat;
 }
 .fg {
-	display: grid;
-	grid-template-columns: 1fr 280px 320px;
-	align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 280px 320px;
+    align-items: center;
 }
 .fg > div {
-	padding: var(--space-xs) var(--space-md);
+    padding: var(--space-xs) var(--space-md);
 }
 .fg > div:first-child {
-	padding-left: 0;
+    padding-left: 0;
 }
 .fg h3 {
-	font-size: 28px;
-	margin-bottom: var(--space-xs);
+    font-size: 28px;
+    margin-bottom: var(--space-xs);
 }
+
+
 .fc {
-	border-left: 1px solid var(--color-accent);
+    border-left: 2px solid var(--color-accent);
 }
 .fc h4 {
-	margin-bottom: var(--space-xs);
+    margin-bottom: var(--space-xs);
 }
 .fc a,
 .fc p {
-	display: block;
-	margin: var(--space-xs) 0;
+    display: block;
+    margin: var(--space-xs) 0;
 }
 .fc a::before,
 .fc p::before {
-	content: '◆';
-	color: var(--color-accent);
-	margin-right: var(--space-xs);
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 17px;
+    margin-right: var(--space-xs);
+    vertical-align: middle;
+    background: var(--color-accent);
+    -webkit-mask: var(--fc-dia) center / contain no-repeat;
+    mask: var(--fc-dia) center / contain no-repeat;
+    --fc-dia: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='17' viewBox='0 0 12 17'><polygon points='5.83,0 11.66,8.12 5.83,16.25 0,8.12' fill='black'/></svg>");
 }
+
+
 .cp {
-	padding: var(--space-md);
-	text-align: center;
+    padding: var(--space-md);
+    text-align: center;
 }
+
+
+

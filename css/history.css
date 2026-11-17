@@ -126,16 +126,10 @@
 	color: var(--color-white);
 }
 .ev h3::after {
-	content: '◆';
 	position: absolute;
 	left: 50%;
-	bottom: -7px;
+	bottom: -4px;
 	transform: translateX(-50%);
-	padding: 0 6px;
-	background: var(--color-bg);
-	color: var(--color-accent);
-	font-size: 9px;
-	line-height: 1;
 }
 .ev h3 b {
 	display: block;
