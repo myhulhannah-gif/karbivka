@@ -17,7 +17,7 @@
 }
 nav {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     gap: clamp(20px, 3.5vw, var(--space-lg));
 }
 nav a {
@@ -25,6 +25,7 @@ nav a {
     padding-bottom: 6px;
     font-family: var(--font-menu);
     font-size: clamp(18px, 2.1vw, var(--size-menu));
+    font-weight: var(--fw-bold);
     text-transform: uppercase;
     color: var(--color-accent);
 }
@@ -68,7 +69,7 @@ nav a.on::after {
 
 .ft {
     position: relative;
-    background: var(--color-bg-dark);
+    background: var(--color-bg);
     padding-top: var(--space-lg);
     /* border-top прибрано, лінію тепер малює ::before */
 }
@@ -95,31 +96,58 @@ nav a.on::after {
 }
 .fg {
     display: grid;
-    grid-template-columns: 1fr 280px 320px;
-    align-items: center;
+    grid-template-columns: 50% 280px 1fr;
+    align-items: stretch;
 }
 .fg > div {
     padding: var(--space-xs) var(--space-md);
 }
 .fg > div:first-child {
+    align-self: center;
     padding-left: 0;
 }
+
+
+.fg > div:nth-child(2) {
+    margin-left: -1px;
+    padding-left: calc(var(--space-lg) - 1px);
+}
+
+
+.fg > div:nth-child(3) {
+    padding-left: var(--space-lg);
+}
+
+
 .fg h3 {
-    font-size: 28px;
+    font-size: var(--size-menu);
+    font-weight: var(--fw-bold);
     margin-bottom: var(--space-xs);
 }
 
+
+.fg p {
+    font-weight: normal;
+    font-family: var(--font-head);
+    font-size: 20px;
+}
 
 .fc {
     border-left: 2px solid var(--color-accent);
 }
 .fc h4 {
     margin-bottom: var(--space-xs);
+    font-weight: var(--fw-regular);
+    font-family: var(--font-head);
+    font-size: 20px;
 }
 .fc a,
 .fc p {
     display: block;
     margin: var(--space-xs) 0;
+    font-family: var(--font-text);
+    font-size: var(--size-p);
+    font-weight: var(--fw-regular);
 }
 .fc a::before,
 .fc p::before {
@@ -135,11 +163,10 @@ nav a.on::after {
     --fc-dia: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='17' viewBox='0 0 12 17'><polygon points='5.83,0 11.66,8.12 5.83,16.25 0,8.12' fill='black'/></svg>");
 }
 
-
 .cp {
     padding: var(--space-md);
     text-align: center;
+    font-family: var(--font-text);
+    font-size: var(--size-p);
+    font-weight: var(--fw-regular);
 }
-
-
-

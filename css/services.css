@@ -1,10 +1,7 @@
 /* Послуги ЦНАП: пошук, картки, бланки, контакти та розклад */
 
 .srch {
-	display: flex;
-	max-width: 480px;
-	margin: 0 auto var(--space-lg);
-	padding: 5px;
+	margin-top: var(--space-lg);
 }
 .srch input {
 	flex: 1;
@@ -20,9 +17,42 @@
 .srch img {
 	width: 18px;
 }
+.sv .sq {
+	width: 60px;
+	height: 60px;
+}
+
+.sv .sq img {
+	width: 25px;
+	height: 25px;
+}
+.sv ul {
+	margin-bottom: var(--space-md);
+}
 .sv .btn {
 	width: 100%;
+	margin-top: auto;
+	padding: 15px 12px;
+	font: var(--fw-semibold) 22px/1 var(--font-menu);
 }
+
+.sv li {
+	margin: 14px 0;
+}
+.sv li::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0.4em;
+	width: 10px;
+	height: 14px;
+	margin: 0;
+	background: var(--color-accent);
+	-webkit-mask: var(--sv-dia) center / contain no-repeat;
+	mask: var(--sv-dia) center / contain no-repeat;
+	--sv-dia: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='17' viewBox='0 0 12 17'><polygon points='5.83,0 11.66,8.12 5.83,16.25 0,8.12' fill='black'/></svg>");
+}
+
 .forms {
 	max-width: 640px;
 	margin: 0 auto;
