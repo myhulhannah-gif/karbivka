@@ -189,7 +189,7 @@
 	align-items: center;
 	gap: 12px;
 	margin: 16px 0;
-	font: var(--fw-regular) 18px var(--font-text); /* Jost Regular 18 */
+	font: var(--fw-regular) 17px var(--font-text); /* Jost Regular 18 */
 }
 .ci .sq {
 	width: 46px;

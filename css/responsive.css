@@ -26,7 +26,7 @@
 	.brand {
 		display: block;
 		max-width: calc(100% - 50px);
-		font: var(--fw-semibold) 28px/1.1 var(--font-head);
+		font: var(--fw-bold) 26px/1.1 var(--font-head);
 		text-transform: uppercase;
 		color: var(--color-accent);
 	}
@@ -35,8 +35,8 @@
 	.burger {
 		display: block;
 		flex: none;
-		width: 32px;
-		height: 22px;
+		width: 30px;
+		height: 20px;
 		margin: 0;
 		padding: 0;
 		border: 0;
@@ -153,20 +153,147 @@
 		text-transform: uppercase;
 		color: var(--color-accent);
 	}
-	.addr,
 	.two,
 	.ev,
-	.cg,
 	.fg {
 		grid-template-columns: 1fr;
 	}
 
-	.ban {
+	/* Розділювач під «Контакти та розклад прийому»: на всю ширину, ромби звичайного розміру.
+   :not(.l) виключає лінію під «Офіційні бланки», селектор не чіпає сторінку історії */
+.ttl.m + .dv:not(.l) {
+	width: 100%;
+	max-width: none;
+	height: 9px;
 	aspect-ratio: auto;
-	min-height: 200px;
-	padding: var(--space-md);
-	background-size: cover;
-	}
+	margin: 3px 0 0;
+	-webkit-mask:
+		linear-gradient(#000, #000) left center / calc(50% - 21.75px) 2px no-repeat,
+		linear-gradient(#000, #000) right center / calc(50% - 21.75px) 2px no-repeat,
+		url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='33.5' height='8.5' viewBox='0 0 33.5 8.5'><g fill='none' stroke='black' stroke-width='1'><polygon points='4.25,0.707 7.793,4.25 4.25,7.793 0.707,4.25'/><polygon points='29.25,0.707 32.793,4.25 29.25,7.793 25.707,4.25'/></g><polygon points='16.75,0 21,4.25 16.75,8.5 12.5,4.25' fill='black'/></svg>") center / 33.5px 8.5px no-repeat;
+	mask:
+		linear-gradient(#000, #000) left center / calc(50% - 21.75px) 2px no-repeat,
+		linear-gradient(#000, #000) right center / calc(50% - 21.75px) 2px no-repeat,
+		url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='33.5' height='8.5' viewBox='0 0 33.5 8.5'><g fill='none' stroke='black' stroke-width='1'><polygon points='4.25,0.707 7.793,4.25 4.25,7.793 0.707,4.25'/><polygon points='29.25,0.707 32.793,4.25 29.25,7.793 25.707,4.25'/></g><polygon points='16.75,0 21,4.25 16.75,8.5 12.5,4.25' fill='black'/></svg>") center / 33.5px 8.5px no-repeat;
+}
+
+/* Дві колонки з вертикальною лінією між ними */
+.cg {
+	grid-template-columns: 1fr 1fr;
+	justify-content: stretch; /* скидає center з services.css */
+	padding: 28px 0;
+}
+.cg > div:first-child {
+	padding: 0 30px 0 30px; /* лівий відступ = правому відступу від лінії */
+}
+.cg > div:last-child {
+	padding: 0 30px 0 30px;
+	border-left: 1px solid var(--color-accent);
+}
+
+/* Контакти: іконки без квадратних рамок, кнопка і мапа по центру колонки */
+.ci {
+	align-items: flex-start;
+	gap: 10px;
+}
+.ci .sq {
+	width: 30px;
+	height: 29px; /* = line-height тексту, іконка стоїть на рівні першого рядка */
+	border: 0;
+}
+.ci .sq img {
+	width: 26px;
+	height: 26px;
+}
+.cg .btn {
+	display: flex;
+	width: max-content;
+	margin: 20px auto 0;
+	padding: 12px 12px;
+	font-size: 20px;
+	border-radius: var(--radius-md);
+}
+.map-link {
+	margin: var(--space-md) auto 0;
+}
+
+/* Розклад: день ліворуч, час праворуч */
+#sch,
+.brk {
+	max-width: none;
+}
+#sch li {
+	justify-content: space-between;
+	padding: 8px 5px;
+	font-size: 18px;
+}
+#sch li.today span {
+	margin-left: 20px; /* «Ср» зсунуто вправо від ромба */
+}
+#sch li.today::before {
+	left: 5px;
+}
+.brk {
+	padding: 10px 0;
+	border-bottom: 0;
+}
+.brk .ic {
+	width: 24px;
+	height: 24px;
+}
+
+.ban {
+	width: auto; /* скидає width: 100% з home.css */
+	max-width: none;
+	aspect-ratio: auto;
+	min-height: 0;
+	justify-content: center;
+	gap: 20px;
+	margin: var(--space-md) var(--space-side);
+	padding: 30px 35px;
+	background: none; /* прибирає header.png */
+	border: 3px solid var(--color-accent);
+	outline: 3px solid var(--color-accent);
+	outline-offset: -12px; /* 6px проміжку між лініями */
+}
+.ban .bt {
+	--h1: clamp(26px, 4.6vw, 40px);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex: none;
+}
+.ban .bt h1 {
+	order: 0;
+	font-size: var(--h1);
+}
+.ban .bt .dv {
+	order: 1;
+	width: calc(var(--h1) * 4.6); /* довжина слова «КАРБІВКА» */
+	height: 9px;
+	aspect-ratio: auto;
+	margin: 2px 0 2px;
+	-webkit-mask-size: 439px 9px;
+	mask-size: 439px 9px;
+	-webkit-mask-position: center;
+	mask-position: center;
+}
+.ban .bt p {
+	order: 2;
+	font-size: clamp(20px, 3.4vw, 30px);
+}
+.ban .bt h2 {
+	order: 3;
+	margin-top: 5px;
+	font-size: clamp(20px, 3.2vw, 28px);
+	font-weight: var(--fw-semibold);
+}
+.ban-map {
+	display: block;
+	flex: none;
+	width: 34%;
+	height: auto;
+}
 
 	.two::before {
 		display: none;
@@ -187,16 +314,102 @@
 	.ev.r > div {
 		text-align: left;
 	}
-	.mayor {
-		max-width: 380px;
-		margin: 0 auto;
-	}
+	.addr {
+	grid-template-columns: 280px 1fr;
+	column-gap: 30px;
+	row-gap: 0;
+	padding-block: var(--space-md);
+}
+.mtxt {
+	display: contents; /* заголовок, розділювач, абзаци й кнопка стають елементами сітки .addr */
+}
+.mtxt .ttl {
+	grid-column: 1 / -1;
+	grid-row: 1;
+}
+.mtxt .dv {
+	grid-column: 1 / -1;
+	grid-row: 2;
+	margin: 3px auto var(--space-md);
+}
+.mayor {
+	grid-column: 1;
+	grid-row: 3 / span 4; /* фото з підписом займає лівий бік під заголовком */
+	align-self: start;
+	max-width: none;
+	margin: 0;
+}
+.mtxt p,
+.mtxt .btn {
+	grid-column: 2;
+}
+.mtxt p {
+	margin: 0 0 var(--space-md);
+}
+.mtxt p:last-of-type {
+	margin-bottom: 0;
+}
 	.fc {
 		border-left: 0;
 	}
 	.fg > div {
 		padding-inline: 0;
 	}
+
+	.dark {
+	padding-top: 0; /* прибирає 18px з home.css */
+}
+.dvw {
+	transform: translateY(-50%); /* центр розділювача лягає на межу двох кольорів */
+}
+.dark .dvw {
+	width: 100%;
+	max-width: none;
+}
+.dark .dvw.dvw-mob {
+	display: block;
+	transform: none; /* без зсуву вгору, який потрібен лише першому розділювачу */
+	margin-bottom: var(--space-md);
+}
+.nw {
+	grid-template-columns: 250px 1fr;
+	height: auto;
+	min-height: 210px;
+}
+.nw .pframe img {
+	width: 100%;
+	height: 150px;
+}
+
+.hd {
+	flex-direction: column;
+	align-items: stretch;
+	gap: 6px;
+}
+.hd h2 {
+	text-align: center;
+}
+.hd a {
+	align-self: flex-end; /* «Усі новини» під заголовком праворуч */
+}
+
+.sv .btn {
+	width: 70%; /* скидає 100% з services.css */
+	align-self: center; /* картка .sv є flex-колонкою, тож центруємо кнопку по горизонталі */
+	padding: 8px;
+	font-size: 20px;
+	text-align: center;
+	text-wrap: balance;
+	border-radius: var(--radius-md);
+}
+
+.fr .btn {
+	padding: 12px;
+	font-size: 15px;
+	font-weight: var(--fw-semibold);
+	border-radius: var(--radius-md); /* 10px */
+}
+
 }
 @media (max-width: 600px) {
 	nav a.on:has(.lw)::before,
@@ -260,6 +473,12 @@
 		margin-left: 8px;
 		padding: var(--space-md) 8px 0;
 	}
+	.nw .pframe img {
+		width: 100%;
+		height: auto;
+		aspect-ratio: 5 / 2; /* пропорція кадру з макета, ≈ 340 / 136 */
+		object-fit: cover;
+	}
 	:root {
 		--space-side: 20px;
 	}
@@ -297,4 +516,639 @@
 	.dv.s {
 		width: 60%;
 	}
+
+/* ───── Головна: телефон ───── */
+.ban {
+	flex-direction: column; /* текст зверху, мапа під ним */
+	gap: 20px;
+	padding: 25px 15px;
+}
+.ban .bt {
+	--h1: 24px; /* від нього рахується довжина розділювача */
+}
+.ban .bt h1 {
+	font-size: 24px;
+}
+.ban .bt h2 {
+	order: 2; /* «Карбівська сільська рада» (біла) йде перед областю */
+	margin-top: 5px;
+	font-size: 22px;
+}
+.ban .bt p {
+	order: 3;
+	font-size: 22px;
+}
+.ban-map {
+	width: min(60%, 220px);
+}
+
+.addr {
+	grid-template-columns: 1fr; /* одна колонка */
+	padding-block: var(--space-md);
+}
+.mayor,
+.mtxt .ttl,
+.mtxt .dv,
+.mtxt p,
+.mtxt .btn {
+	grid-column: 1;
+	grid-row: auto; /* скидає розташування з блоку планшета */
+}
+.mayor {
+	justify-self: center;
+	width: min(100%, 230px);
+	margin-bottom: var(--space-lg);
+}
+.mayor span,
+.mayor b {
+	font-size: 18px;
+}
+.mtxt .ttl {
+	font-size: 20px;
+}
+.mtxt .dv {
+	margin: 3px auto var(--space-md);
+}
+.mtxt p {
+	margin: 0 0 var(--space-md);
+	font-size: 15px;
+}
+.mtxt .btn {
+	display: flex;
+	width: max-content;
+	margin: var(--space-md) auto 0;
+	padding: 12px;
+	font-size: 18px;
+}
+
+/* ───── Головна: новини, телефон ───── */
+.hd h2 {
+	font-size: 22px;
+}
+.hd a {
+	font-size: 13px;
+}
+.nw {
+	grid-template-columns: 1fr; /* фото зверху, текст під ним */
+	height: auto;
+	min-height: 0;
+	gap: var(--space-xs);
+	padding-bottom: var(--space-sm);
+}
+.nw .pframe {
+	width: 100%;
+}
+.nw > div:not(.pframe) {
+	padding-bottom: 0;
+}
+.nw small {
+	font-size: 15px;
+}
+.nw h3 {
+	margin: 6px 0 8px;
+	font-size: 15px;
+}
+.nw p {
+	font-size: 15px;
+	text-align: justify;
+}
+.nw a {
+	padding-top: 10px;
+	font-size: 13px;
+}
+}
+
+/* ───────── Історія: планшет (600–900px) ───────── */
+.br-tab { display: none; }
+.hy { display: none; }
+
+
+@media (min-width: 600px) and (max-width: 900px) {
+    .tl {
+        --u: 32px;
+        aspect-ratio: 744 / 610;
+        max-height: none;
+        margin-top: -30px;
+        margin-bottom: -80px;
+    }
+
+
+    .tl::before {
+        background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 744 610' preserveAspectRatio='none'><path d='M-2.84857 144.293C135.863 99.7818 162.833 112.727 153.97 202.881C139.711 500.875 303.786 284.79 482.499 214.314C661.211 143.837 664.632 269.443 646.184 301.954C627.735 334.465 494.906 503.532 616.188 565.523C649.559 577.967 724.676 564.812 747.84 548.292' fill='none' stroke='%23CCCC00' stroke-width='8'/></svg>") center / 100% 100% no-repeat;
+    }
+
+
+    .tl .yr {
+        font-family: var(--font-num);
+        font-size: 32px;
+        font-weight: var(--fw-bold);
+    }
+
+
+    .yr::before { left: calc(50% + var(--dx, 0em)); }
+
+
+    .tip2 {
+        --ext: 0px;
+        display: flex;
+        align-items: stretch;
+        gap: 0.5em;
+        box-sizing: border-box;
+        width: 313px !important;
+        height: 107px !important;
+        padding: 3px;
+        border: 1px solid var(--color-accent);
+        background-image: none;
+        white-space: normal;
+        text-align: left;
+    }
+
+
+    .tip2 .ph {
+        flex: 0 0 122px;
+        width: 122px;
+        height: 99px;
+        object-fit: cover;
+        aspect-ratio: auto;
+        margin: 0;
+        border-width: 1px;
+    }
+
+
+    .tip2 .tx {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1;
+        min-width: 0;
+        padding: 0.5em 0.4em 0.2em 0;
+    }
+
+
+    .tip2 .tx span {
+        font-family: var(--font-head);
+        font-size: 20px;
+        font-weight: var(--fw-bold);
+    }
+
+
+    .tip2 a {
+        right: 0;
+        bottom: 0;
+        margin: 0.6em 0 0 auto;
+        font-family: var(--font-head);
+        font-size: 15px;
+        font-weight: var(--fw-regular);
+    }
+
+
+    .ttl .br-tab { display: block; }
+    .tip2 .br-tab { display: block; }
+    .tip2 .hy { display: inline; }
+
+
+    .ttl {
+        font-family: var(--font-head);
+        font-size: 32px;
+        font-weight: var(--fw-bold);
+        text-align: center;
+        line-height: 1.15;
+        margin: 0;
+    }
+
+
+    .dv {
+        width: 622px;
+        max-width: 100%;
+        margin: 0 auto 24px;
+    }
+
+
+    .ev,
+    .ev.r {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+
+    .ev.r figure,
+    .ev.r .ph-col { order: 0; }
+
+
+    .ev .ph-col {
+        width: 622px;
+        max-width: 100%;
+        margin-inline: auto;
+    }
+
+
+    .ev .pframe {
+        width: 100%;
+        margin-inline: 0;
+    }
+
+
+    .ev .pframe img { aspect-ratio: 600 / 335; }
+
+
+    .tl-link {
+        font-family: var(--font-head);
+        font-size: 17px;
+        font-weight: var(--fw-medium);
+        text-align: right;
+        margin-top: 12px;
+    }
+
+
+    .ev > div:not(.ph-col),
+    .ev.r > div:not(.ph-col) {
+        width: 100%;
+        max-width: 622px;
+        margin-inline: auto;
+        text-align: left;
+    }
+
+
+    .ev h3,
+    .ev.r h3 {
+        margin: 0 0 var(--space-md);
+        text-align: left;
+    }
+
+
+    .ev h3 b {
+        font-family: var(--font-num);
+        font-size: 32px;
+        font-weight: var(--fw-bold);
+    }
+
+
+    .ev h3 span {
+        font-family: var(--font-head);
+        font-size: 32px;
+        font-weight: var(--fw-bold);
+    }
+
+
+    .ev p {
+        font-family: var(--font-text);
+        font-size: 17px;
+        font-weight: var(--fw-regular);
+    }
+
+
+    .dvw {
+        width: 622px;
+        max-width: 100%;
+        margin-inline: auto;
+    }
+
+
+    main > .sec:first-child { padding-top: 30px; }
+}
+
+/* ───────── Форма звернення: планшет (600–900px) ───────── */
+@media (min-width: 600px) and (max-width: 900px) {
+    .fm {
+        box-sizing: border-box;
+        width: 616px;
+        max-width: 100%;
+        min-height: 952px;
+        margin: 30px auto 0;
+        padding: 28px 22px;
+
+
+    }
+
+
+    .fm h4 {
+        margin: 18px 0 8px;
+        font-size: 16px;
+    }
+
+
+    /* вид звернення: 2 × 2 */
+    .types {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px 14px;
+    }
+
+
+    .types button {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+
+    .types b {
+        margin-bottom: 6px;
+        font-size: 13px;
+        font-weight: var(--fw-medium);
+    }
+
+
+    /* про вас: 2 колонки */
+    .g2 {
+        gap: 4px 14px;
+    }
+
+
+    .fm input:not([type='checkbox']) {
+        padding: 6px 0;
+        border-bottom-width: 1px;
+        font-size: 14px;
+    }
+
+
+    /* суть питання */
+    .lb {
+        margin-top: 10px;
+        font-size: 14px;
+        text-transform: uppercase;
+    }
+
+
+    .fm select,
+    .fm textarea {
+        padding: 8px 12px;
+        border-width: 1px;
+        font-size: 14px;
+    }
+
+
+    .fm textarea {
+        min-height: 150px;
+    }
+
+
+    /* чекбокс */
+    .chk {
+        align-items: flex-start;
+        gap: 10px;
+        margin: 16px 0 8px;
+        font-size: 14px;
+    }
+
+
+    .chk input {
+        width: 22px;
+        height: 22px;
+        border-width: 1px;
+    }
+
+
+    .btn.c {
+        padding: 12px 14px;
+        font-size: 20px;
+    }
+
+
+    .fm h4 {
+        font-size: 20px;
+    }
+
+
+    .types b {
+        font-size: 17px;
+        margin-bottom: 12px;
+    }
+
+
+    .types button {
+        font-size: 17px;
+    }
+
+
+    .fm input:not([type='checkbox']) {
+        font-size: 17px;
+    }
+
+
+    .lb {
+        font-size: 17px;
+        font-weight: var(--fw-medium);
+    }
+
+
+    .fm select,
+    .fm textarea {
+        font-size: 17px;
+    }
+
+
+    .chk {
+        font-size: 17px;
+    }
+
+
+    .err {
+        min-height: 0;
+        margin-top: 0;
+    }
+
+
+    .err:not(:empty) {
+        margin-top: 4px; /* відступ зʼявляється, тільки коли є текст помилки */
+    }
+
+
+    .types button {
+        padding: 8px 12px 22px; /* зверху 8, з боків 8, знизу 14 */
+    }
+
+
+    .fm select {
+        box-sizing: border-box;
+        width: 552px;
+        max-width: 100%;
+        height: 48px;
+        padding: 0 14px;
+    }
+
+
+    .btn.c {
+        display: block;
+        width: 235px;
+        height: 53px;
+        width: fit-content;
+        margin: var(--space-xs) auto 0;
+        text-transform: lowercase;
+    }
+
+
+    .btn.c::first-letter {
+        text-transform: uppercase;
+    }
+
+
+    .fm {
+        padding: 40px;
+    }
+
+
+    .lb {
+        margin-top: 12px;    /* зверху */
+        margin-bottom: 12px;  /* знизу, до поля */
+    }
+
+
+    .fm select,
+    .fm textarea {
+        margin-top: 12px !important; /* щоб відступ не додавався двічі */
+    }
+
+
+    .btn.c {
+        margin: 24px auto 24px;
+    }
+
+
+    .fm {
+        padding-bottom: 0; /* нижній відступ тепер дає margin кнопки */
+    }
+   
+    .grid3.o {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* остання картка в неповному рядку стає по центру */
+        gap: 24px;
+        max-width: 624px;
+        margin-inline: auto;
+        padding: 0;
+    }
+
+
+    /* остання картка по центру */
+    .grid3.o .card:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        width: calc(50% - 12px);
+        justify-self: center;
+    }
+
+
+    .grid3.o .card {
+        box-sizing: border-box;
+        flex: 0 0 calc((100% - 24px) / 2); /* рівно дві в ряд */
+        width: auto;
+        max-width: none;
+        height: 188px;
+        margin: 0;
+        padding: 14px 16px;
+    }
+
+
+    .grid3.o .card:last-child:nth-child(odd) {
+        grid-column: 2 / span 2;
+        justify-self: stretch;
+        width: auto;
+        margin: 0;
+    }
+
+
+    .grid3.o .card h3 {
+        font-size: 20px;
+        white-space: nowrap; /* «Через Дію» в один рядок */
+    }
+
+
+    .grid3.o .card p {
+        font-size: 17px;
+        margin: 10px 0;
+        line-height: 1.3;
+    }
+
+
+    .ttl {
+        font-size: 32px;
+    }
+}
+
+/* ───────── Футер: планшет (600–900px) ───────── */
+@media (min-width: 600px) and (max-width: 900px) {
+    .fg {
+        grid-template-columns: 1fr 1fr;
+        max-width: 622px;
+        margin-inline: auto;
+    }
+
+
+    /* назва порталу: на всю ширину, по центру */
+    .fg > div:first-child {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 0 0 var(--space-xs);
+    }
+
+
+    .fg > div:first-child p {
+        margin-top: -8px;
+        margin-bottom: 9px;
+    }
+
+
+    .fg > div:nth-child(2),
+    .fg > div:nth-child(3) {
+        padding-top: 0;
+    }
+
+
+    .fg > div:nth-child(2) h3,
+    .fg > div:nth-child(3) h3,
+    .fg > div:nth-child(2) h4,
+    .fg > div:nth-child(3) h4 {
+        margin-top: 0;
+    }
+
+
+    .fg > div:nth-child(2) {
+        padding-left: 26px;
+        border-left: 0; /* лінія тільки між колонками */
+    }
+
+
+    .fg > div:nth-child(2) a,
+    .fg > div:nth-child(3) a,
+    .fg > div:nth-child(3) p {
+        padding-left: 4px;
+    }
+
+
+    /* вертикальна лінія між колонками, коротша знизу */
+    .fg > div:nth-child(3) {
+        border-left: 2px solid;
+        border-image: linear-gradient(var(--color-accent) calc(100% - 18px), transparent 0) 1;
+    }
+
+
+    .fg > div:nth-child(3) p {
+        white-space: nowrap;
+    }
+
+
+    /* розміри шрифтів */
+    .fg h3 {
+        font-size: 26px;
+    }
+
+
+    .fg p {
+        font-size: 18px;
+    }
+
+
+    .fc h4 {
+        font-size: 18px;
+    }
+
+
+    .fc a,
+    .fc p {
+        font-size: 17px;
+    }
+
+
+    .cp {
+        padding: 12px var(--space-md);
+        font-size: 17px;
+    }
 }

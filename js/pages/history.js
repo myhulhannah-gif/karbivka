@@ -68,6 +68,20 @@ function initHistory() {
     };
 
 
+    const mq = window.matchMedia('(min-width: 600px) and (max-width: 900px)');
+
+
+    // планшет: ширша горизонтальна картка + свої координати
+    const KT = { cardW: 8.6, cardFont: 0.5 };
+    const tab = {
+        y1782: { x: 12.04, y: 23.9,  dx: 0.05,  dy: -0.77, card: [2.4, -2.7, 0, 0],   big: [1.6, -1.3],  small: [0.8, -0.7] },
+        y1920: { x: 18.2, y: 55.55, dx: 1.92,  dy: 0.42,  card: [0.6, 5.5, 0, 1],   big: [1.5, 1.3],  small: [0.5, 0.9] },
+        y1950: { x: 55.78, y: 43.85, dx: -1.88, dy: 0.44,  card: [-3.9, 2.9, 0, 0],     big: [0.9, 2.0],   small: [0.2, 1.1] },
+        y1991: { x: 80.51, y: 36.07, dx: 0.06,  dy: -0.69, card: [-2.0, -5.0, 1, 0],   big: [-2.4, -0.9],  small: [-1.0, -0.8] },
+        y2026: { x: 90.1, y: 85.08, dx: -1.7, dy: 1.2,   card: [-2.8, 0.6, 1, 1],   big: [-1.9, -0.2],  small: [-1.0, 0.3] },
+    };
+
+
     const DEFAULT_ID = 'y1950';
     let current = DEFAULT_ID;
     let isOpen = false;
@@ -85,12 +99,14 @@ function initHistory() {
 
     // центр ромба та одиниця u в пікселях
     function diamond(id) {
-        const { x, y, dy } = cfg[id];
+        const t = mq.matches ? tab[id] : null;
+        const { x, y, dy } = t || cfg[id];
+        const dx = t ? t.dx : 0;
         const btn = btns.find((b) => b.getAttribute('href') === '#' + id);
         const u = parseFloat(getComputedStyle(btn).fontSize);
         return {
             u,
-            cx: (x / 100) * tl.clientWidth,
+            cx: (x / 100) * tl.clientWidth + dx * u,
             cy: (y / 100) * tl.clientHeight + dy * u,
         };
     }
@@ -106,11 +122,16 @@ function initHistory() {
 
     function layoutTip() {
         if (!isOpen) return;
-        const { card, big, small, w: cw = K.cardW, font: cf = K.cardFont, minTop = -100 } = cfg[current];
+        const t = mq.matches;
+        const c = cfg[current];
+        const { card, big, small } = t ? tab[current] : c;
+        const cw = t ? KT.cardW : c.w ?? K.cardW;
+        const cf = t ? KT.cardFont : c.font ?? K.cardFont;
+        const minTop = c.minTop ?? -100;
         const { u, cx, cy } = diamond(current);
 
 
-        const w = cw * u;
+        const w = t ? 313 : cw * u;
         tip.style.width = w + 'px';
         tip.style.fontSize = cf * u + 'px';
         const h = tip.offsetHeight;
@@ -124,8 +145,8 @@ function initHistory() {
         place(tip, left, top);
 
 
-        const bd = K.bigD * u,
-            sd = K.smallD * u;
+        const bd = t ? 36 : K.bigD * u,
+            sd = t ? 17 : K.smallD * u;
         place(dotBig, cx + big[0] * u - bd / 2, cy + big[1] * u - bd / 2, bd, bd);
         place(dotSmall, cx + small[0] * u - sd / 2, cy + small[1] * u - sd / 2, sd, sd);
     }
@@ -152,7 +173,7 @@ function initHistory() {
 
         const e = document.getElementById(id);
         const more = e.dataset.more || tl.dataset.more || 'ЧИТАТИ ДАЛІ ↓';
-        tip.innerHTML = `<img class="ph" src="${$('img', e).getAttribute('src')}" alt="">${$('h3 span', e).textContent}<a href="#${id}">${more}</a>`;
+        tip.innerHTML = `<img class="ph" src="${$('img', e).getAttribute('src')}" alt=""><div class="tx"><span>${$('h3 span', e).textContent.replace(/(індустріаліза)(ція)/i, '1<spanclass="hy">-</span><brclass="br-tab">2')}</span><a href="#${id}">${more}</a></div>`;
 
 
         isOpen = true;
@@ -189,14 +210,35 @@ function initHistory() {
 
 
     // за замовчуванням: 1950 активний і картка відкрита
+    applyYearPos();
     setActive(DEFAULT_ID);
     showTip(DEFAULT_ID);
 
 
-    window.addEventListener('resize', layout);
+    window.addEventListener('resize', () => { applyYearPos(); layout(); });
+    mq.addEventListener('change', () => { applyYearPos(); layout(); });
     // фото й шрифти вантажаться пізніше: перераховуємо висоту картки
     tip.addEventListener('load', layoutTip, true);
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
+
+
+    // позиції років на планшеті беруться з tab; на десктопі повертаємо CSS
+function applyYearPos() {
+    btns.forEach((b) => {
+        const t = tab[b.getAttribute('href').slice(1)];
+        if (mq.matches) {
+            b.style.left = t.x + '%';
+            b.style.top = t.y + '%';
+            b.style.setProperty('--dx', t.dx + 'em');
+            b.style.setProperty('--dy', t.dy + 'em');
+        } else {
+            b.style.left = '';
+            b.style.top = '';
+            b.style.removeProperty('--dx');
+            b.style.removeProperty('--dy');
+        }
+    });
+}
 }
 initHistory();
 
