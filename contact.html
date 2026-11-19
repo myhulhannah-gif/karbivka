@@ -14,14 +14,19 @@
 	<body data-p="contact">
 		<!-- Шапка сайту -->
 		<header class="top">
-			<button class="burger" aria-label="Меню">
-				<img class="" src="img/icons/menu.svg" alt="" />
-			</button>
+			<a class="brand" href="index.html">Карбівська сільська рада</a>
+			<button class="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="nav"></button>
+			<div class="nav-overlay"></div>
 			<nav id="nav">
-				<a href="index.html">Головна</a>
+				<div class="nav-head">
+					<span>Навігація</span>
+					<button class="nav-close" type="button" aria-label="Закрити меню"></button>
+				</div>
+				<a href="index.html" class="on">Головна</a>
 				<a href="history.html">Історія селища</a>
 				<a href="services.html">Послуги ЦНАП</a>
-				<a href="contact.html" class="on">Звернення та контакти</a>
+				<a href="contact.html">Звернення та <span class="lw">контакти</span></a>
+				<p class="nav-foot">Карбівська сільська рада</p>
 			</nav>
 		</header>
 		<main>
