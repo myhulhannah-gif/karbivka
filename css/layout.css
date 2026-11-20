@@ -1,6 +1,4 @@
 /* Шапка з меню, бургер і футер (спільні для всіх сторінок) */
-
-
 .top {
     padding: var(--space-md) var(--space-side) var(--space-sm);
     border-bottom: 1px solid var(--color-accent);
@@ -69,7 +67,6 @@ nav a.on::after {
     position: relative;
     background: var(--color-bg);
     padding-top: var(--space-lg);
-    /* border-top прибрано, лінію тепер малює ::before */
 }
 
 
@@ -169,12 +166,8 @@ nav a.on::after {
     font-weight: var(--fw-regular);
 }
 
-/* ═════════════ Соцмережі ═════════════
-   ПК (від 901px): кнопка-глобус .soc
-   Планшет і телефон (до 900px): висувна панель .sp знизу зліва */
-
-
-/* ───── Кружки з іконками (спільне): жовтий фон, чорна іконка ───── */
+/* Соцмережі
+/* Кружки з іконками (спільне): жовтий фон, чорна іконка */
 .soc-list a,
 .sp a {
     display: grid;
@@ -193,7 +186,6 @@ nav a.on::after {
     transition: transform 0.2s, filter 0.2s;
 }
 
-/* Наведення (лише там, де є миша): іконка збільшується, позаду біле світіння */
 @media (hover: hover) {
     .soc-list a:hover img,
     .sp a:hover img {
@@ -205,7 +197,7 @@ nav a.on::after {
         background: #b3b300;
     }
 }
-/* На дотик те саме, поки палець тисне */
+
 .soc-list a:active img,
 .sp a:active img {
     transform: scale(1.25);
@@ -220,7 +212,7 @@ nav a.on::after {
 }
 
 
-/* ───── ПК: кнопка-глобус ───── */
+/* ПК: кнопка-глобус */
 .soc {
     position: fixed;
     left: max(16px, env(safe-area-inset-left, 0px));
@@ -252,7 +244,7 @@ nav a.on::after {
     transition: transform 0.6s ease;
 }
 .soc.open .globe {
-    transform: rotate(360deg); /* глобус робить оберт */
+    transform: rotate(360deg);
 }
 
 /* Панель із кружками над кнопкою */
@@ -260,7 +252,7 @@ nav a.on::after {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    padding: 8px; /* 40 + 2×8 = 56px, як ширина кнопки */
+    padding: 8px;
     border: 1px solid var(--color-accent);
     border-radius: 28px;
     background: var(--color-bg-dark);

@@ -6,11 +6,9 @@
     margin-bottom: 0;
 }
 
-
 .ttl + .dv {
-    margin-top: 3px; /* відстанб між заголовком і роздільником */
+    margin-top: 3px;
 }
-
 
 /* Розділювач з двома пустими ромбами */
 .dv {
@@ -44,7 +42,7 @@
     width: min(319px, 100%);
     aspect-ratio: 319 / 8;
 }
-/* Розділювач на всб ширину*/
+/* Розділювач на всю ширину*/
 .dvw {
     --dvw-dia: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='33.5' height='8.5' viewBox='0 0 33.5 8.5'><g fill='none' stroke='black' stroke-width='1'><polygon points='4.25,0.707 7.793,4.25 4.25,7.793 0.707,4.25'/><polygon points='29.25,0.707 32.793,4.25 29.25,7.793 25.707,4.25'/></g><polygon points='16.75,0 21,4.25 16.75,8.5 12.5,4.25' fill='black'/></svg>");
     display: block;
@@ -60,11 +58,6 @@
         linear-gradient(#000, #000) right center / calc(50% - 21.75px) 2px no-repeat,
         var(--dvw-dia) center / 33.5px 8.5px no-repeat;
 }
-
-
-
-
-
 
 .btn {
     display: inline-flex;
@@ -187,6 +180,3 @@
     text-align: center;
     color: var(--color-muted);
 }
-
-
-

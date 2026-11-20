@@ -1,29 +1,25 @@
 /* Історія: лінія часу та секції подій */
-
-
 body {
     background: var(--color-bg-dark);
-    overflow-x: clip; /* щоб 100vw не давав горизонтального скролу */
+    overflow-x: clip;
 }
 
 .top {
     background: var(--color-bg);
 }
 
-/* ───────── Лінія часу ───────── */
-
+/* Лінія часу */
 .tl {
-    --u: clamp(16px, 2.78vw, 40px); /* одиниця розміру років */
+    --u: clamp(16px, 2.78vw, 40px);
     width: 100vw;
     position: relative;
     margin: 120px 0 var(--space-lg) calc(50% - 50vw);
     height: auto;
     aspect-ratio: 1460 / 481;
     max-height: calc(100vh - 340px);
-    isolation: isolate; /* власний контекст шарів: -1 лежить під лінією */
-    perspective: 800px; /* потрібна для translateZ в анімації fade-in-fwd */
+    isolation: isolate;
+    perspective: 800px;
 }
-
 
 /* сама лінія */
 .tl::before {
@@ -31,12 +27,10 @@ body {
     position: absolute;
     inset: 0;
     z-index: 1;
-    pointer-events: none; /* не перехоплює кліки (картка під нею) */
+    pointer-events: none;
     background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-10 -6 1460 481' preserveAspectRatio='none'><path d='M-10 105.696C202.427 -7.5167 256.441 -2.93953 294.255 111.773C445.115 484.608 632.546 276.834 898.504 114.811C1164.46 -47.212 1431.88 105.089 1329.04 186.51C1226.2 267.932 1083.92 393.087 1329.04 418.319C1393.78 419.583 1419.87 411.042 1450 380.95' fill='none' stroke='%23CCCC00' stroke-width='8'/></svg>") center / 100% 100% no-repeat;
 }
 
-
-/* роки + ромби (над лінією) */
 .yr {
     position: absolute;
     z-index: 2;
@@ -58,7 +52,6 @@ body {
 .yr.y4 { left: 80.96%; top: 14.97%; --dy: -0.5em; }
 .yr.y5 { left: 88.29%; top: 90.85%; --dy: -0.45em; }
 
-
 .yr::before {
     content: '';
     position: absolute;
@@ -70,16 +63,12 @@ body {
     background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='35' height='49' viewBox='0 0 35 49' fill='none'><rect width='30' height='30' transform='matrix(0.583355 0.812218 -0.582621 0.812744 17.4785 0)' fill='%23141414'/><path d='M17.4804 4.0624L18.9369 2.03054L17.4785 0L16.022 2.03186L17.4804 4.0624ZM32.0642 24.3678L33.5226 26.3984L34.9792 24.3665L33.5208 22.336L32.0642 24.3678ZM17.4987 44.6865L16.0422 46.7183L17.5005 48.7489L18.9571 46.717L17.4987 44.6865ZM2.91484 24.381L1.45645 22.3505L-9.94205e-05 24.3823L1.45829 26.4129L2.91484 24.381ZM17.4804 4.0624L16.0238 6.09427L30.6077 26.3997L32.0642 24.3678L33.5208 22.336L18.9369 2.03054L17.4804 4.0624ZM32.0642 24.3678L30.6058 22.3373L16.0403 42.6559L17.4987 44.6865L18.9571 46.717L33.5226 26.3984L32.0642 24.3678ZM17.4987 44.6865L18.9553 42.6546L4.37139 22.3492L2.91484 24.381L1.45829 26.4129L16.0422 46.7183L17.4987 44.6865ZM2.91484 24.381L4.37322 26.4116L18.9387 6.09295L17.4804 4.0624L16.022 2.03186L1.45645 22.3505L2.91484 24.381Z' fill='%23CCCC00'/></svg>") center / 100% 100% no-repeat;
 }
 
-
 .yr.act::before {
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='35' height='49' viewBox='0 0 35 49' fill='none'><rect width='30' height='30' transform='matrix(0.583355 0.812218 -0.582621 0.812744 17.4785 0)' fill='%23CCCC00'/><path d='M17.4804 4.0624L18.9369 2.03054L17.4785 0L16.022 2.03186L17.4804 4.0624ZM32.0642 24.3678L33.5226 26.3984L34.9792 24.3665L33.5208 22.336L32.0642 24.3678ZM17.4987 44.6865L16.0422 46.7183L17.5005 48.7489L18.9571 46.717L17.4987 44.6865ZM2.91484 24.381L1.45645 22.3505L-9.94205e-05 24.3823L1.45829 26.4129L2.91484 24.381ZM17.4804 4.0624L16.0238 6.09427L30.6077 26.3997L32.0642 24.3678L33.5208 22.336L18.9369 2.03054L17.4804 4.0624ZM32.0642 24.3678L30.6058 22.3373L16.0403 42.6559L17.4987 44.6865L18.9571 46.717L33.5226 26.3984L32.0642 24.3678ZM17.4987 44.6865L18.9553 42.6546L4.37139 22.3492L2.91484 24.381L1.45829 26.4129L16.0422 46.7183L17.4987 44.6865ZM2.91484 24.381L4.37322 26.4116L18.9387 6.09295L17.4804 4.0624L16.022 2.03186L1.45645 22.3505L2.91484 24.381Z' fill='white'/></svg>");
 }
 
 
-/* ───────── Елементи, якими керує JS (позиція й розмір задаються в JS) ───────── */
-
-
-/* гем над активним ромбом — позаду всього */
+/* Елементи, якими керує JS */
 .nav-gem {
     position: absolute;
     z-index: -1;
@@ -87,8 +76,6 @@ body {
     background: url('../img/nav.png') center / contain no-repeat;
 }
 
-
-/* кружечки від картки до ромба */
 .dot {
     position: absolute;
     z-index: 1;
@@ -98,14 +85,10 @@ body {
     background-size: 100% 100%;
 }
 
-
-/* більший: товсте кільце, без заливки */
 .dot.big {
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 36 36' fill='none'><circle cx='18' cy='18' r='15.5' stroke-width='5' stroke='%23CCCC00'/></svg>");
 }
 
-
-/* менший: з темною заливкою */
 .dot.small {
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='17' height='17' viewBox='0 0 17 17' fill='none'><circle cx='8.5' cy='8.5' r='6' fill='%231E1E1E' stroke-width='5' stroke='%23CCCC00'/></svg>");
 }
@@ -113,13 +96,13 @@ body {
 
 /* картка події */
 .tip2 {
-    --o: 6px;    /* зовнішні лінії: відстань від краю картки */
-    --i: 20px;   /* внутрішні лінії: відстань від краю картки */
-    --ext: 10px; /* на скільки лінії виступають за кути */
+    --o: 6px;
+    --i: 20px;
+    --ext: 10px;
     position: absolute;
     z-index: 3;
     box-sizing: border-box;
-    padding: calc(var(--i) + 1px); /* фото лежить усередині внутрішньої рамки */
+    padding: calc(var(--i) + 1px);
     border: none;
     outline: none;
     text-align: center;
@@ -154,7 +137,6 @@ body {
     background-repeat: no-repeat;
 }
 
-
 .tip2 .ph {
     display: block;
     width: 100%;
@@ -167,13 +149,12 @@ body {
     object-fit: cover;
 }
 
-
 .tip2 a {
     display: block;
-    width: fit-content;          /* кнопка = ширина тексту */
-    margin: 0.6em 0 0.2em auto;  /* auto зліва притискає її вправо */
+    width: fit-content;
+    margin: 0.6em 0 0.2em auto;
     position: relative;
-    right: 10px;                 /* зсув «ЧИТАТИ ДАЛІ» вліво */
+    right: 10px;
     bottom: 5px;
     font: 0.6em var(--font-head);
     letter-spacing: 0.04em;
@@ -184,15 +165,12 @@ body {
     cursor: pointer;
 }
 
-
 .tip2 a:hover {
     text-decoration: underline;
 }
 
 
-/* ───────── Анімація появи (Animista fade-in-fwd), по черзі ───────── */
-
-
+/* Анімація появи (Animista fade-in-fwd), по черзі */
 /* стан «сховано» */
 .dot,
 .tip2 {
@@ -200,8 +178,6 @@ body {
     visibility: hidden;
 }
 
-
-/* стан «показано»: клас .show ставить JS */
 .dot.show,
 .tip2.show {
     visibility: visible;
@@ -209,11 +185,9 @@ body {
     animation: fade-in-fwd 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) var(--d) both;
 }
 
-
 .dot.small { --d: 0s; }    /* 1: маленьке коло */
 .dot.big   { --d: 0.3s; }  /* 2: велике коло */
 .tip2      { --d: 0.6s; }  /* 3: картка */
-
 
 @-webkit-keyframes fade-in-fwd {
     0% {
@@ -240,10 +214,7 @@ body {
     }
 }
 
-
-/* ───────── Секції подій ───────── */
-
-
+/*Секції подій*/
 .tl-link {
     display: block;
     margin-top: 8px;
@@ -259,7 +230,6 @@ body {
     text-decoration-thickness: 1px;
 }
 
-
 .ev {
     display: grid;
     grid-template-columns: 622px 1fr;
@@ -269,17 +239,14 @@ body {
     scroll-margin-top: var(--space-md);
 }
 
-
 .ev.r {
     grid-template-columns: 1fr 622px;
 }
-
 
 .ev.r figure,
 .ev.r .ph-col {
     order: 2;
 }
-
 
 .ev .pframe {
     width: 622px;
@@ -292,7 +259,6 @@ body {
     outline-offset: -9px;
 }
 
-
 .ev .pframe img {
     display: block;
     width: 100%;
@@ -300,17 +266,14 @@ body {
     object-fit: cover;
 }
 
-
 .ev.r > div {
     text-align: right;
 }
-
 
 .ev > div:not(.ph-col) {
     width: fit-content;
     max-width: 100%;
 }
-
 
 .ev h3 {
     position: relative;
@@ -324,12 +287,10 @@ body {
     color: var(--color-accent);
 }
 
-
 .ev.r h3 {
     margin-left: auto;
     text-align: right;
 }
-
 
 .ev h3::after {
     content: '';
@@ -349,13 +310,11 @@ body {
         url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'><polygon points='4,0 8,4 4,8 0,4' fill='black'/></svg>") center / 8px 8px no-repeat;
 }
 
-
 .ev h3 b {
     display: block;
     font: var(--fw-bold) 40px var(--font-num);
     color: var(--color-accent);
 }
-
 
 .ev h3 span {
     display: block;
@@ -363,11 +322,9 @@ body {
     color: var(--color-accent);
 }
 
-
 .ev p {
     font: 18px var(--font-text);
     font-weight: var(--fw-regular);
     text-align: justify;
     line-height: 1.5;
 }
-
