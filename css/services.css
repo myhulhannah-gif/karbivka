@@ -160,7 +160,7 @@
 
 .cont {
 	max-width: 1200px;
-	margin: 35px auto 0; /* було 0 auto */
+	margin: 35px auto 0;
 	padding: 0;
 	border: 2px solid var(--color-accent);
 	outline: 0;
@@ -168,8 +168,8 @@
 }
 .cg {
 	display: grid;
-	grid-template-columns: minmax(0, 542px) minmax(0, 378px); /* ліва, права */
-	justify-content: center; /* поля зліва і справа однакові (по ~128px) */
+	grid-template-columns: minmax(0, 542px) minmax(0, 378px);
+	justify-content: center;
 	gap: 0;
 	margin: 6px;
 	padding: var(--space-lg) 0;
@@ -177,19 +177,19 @@
 }
 .cg h4 {
 	margin-bottom: var(--space-md);
-	font: var(--fw-bold) 22px var(--font-head); /* Cormorant Bold 22 */
+	font: var(--fw-bold) 22px var(--font-head);
 }
 .cg .btn {
 	margin-top: 14px;
-	padding: 15px 12px; /* зверху/знизу 15, з боків 12 */
-	font: var(--fw-semibold) 22px/1 var(--font-menu); /* Libertinus Serif SemiBold 22 */
+	padding: 15px 12px;
+	font: var(--fw-semibold) 22px/1 var(--font-menu);
 }
 .ci {
 	display: flex;
 	align-items: center;
 	gap: 12px;
 	margin: 16px 0;
-	font: var(--fw-regular) 17px var(--font-text); /* Jost Regular 18 */
+	font: var(--fw-regular) 17px var(--font-text);
 }
 .ci .sq {
 	width: 46px;
@@ -216,7 +216,7 @@
 	margin-top: var(--space-md);
 }
 .map-link .map {
-	margin-top: 0; /* відступ тепер у посилання */
+	margin-top: 0;
 }
 
 #sch {
@@ -236,7 +236,7 @@
 }
 #sch li span {
 	width: 28px;
-	font: var(--fw-regular) 18px var(--font-head); /* дні тижня засічковим шрифтом */
+	font: var(--fw-regular) 18px var(--font-head);
 	color: var(--color-muted);
 }
 #sch li.today {
@@ -282,7 +282,8 @@
 }
 .tip {
 	padding: 20px var(--space-lg);
-	border-top: 2px solid var(--color-accent); /* лінія-розділювач над текстом */
+	border-top: 2px solid var(--color-accent);
+	background: var(--color-bg-dark);
 	font: var(--fw-regular) 18px var(--font-text);
 }
 .tip::before {

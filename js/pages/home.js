@@ -1,5 +1,4 @@
-// Головна: кнопка «До календаря» відкриває Google Календар із заповненою подією
-
+// Головна
 function initHome() {
 	$$('.evt .btn').forEach((btn) =>
 		btn.addEventListener('click', () => {
@@ -11,7 +10,7 @@ function initHome() {
 				text: $('h3', e).textContent,
 				location: $('.pl', e).textContent,
 				dates: `${d}T${t(e.dataset.from)}/${d}T${t(e.dataset.to)}`,
-				ctz: 'Europe/Kyiv', // часовий пояс, щоб час не зсунувся
+				ctz: 'Europe/Kyiv', // часовий пояс
 			});
 			window.open('https://calendar.google.com/calendar/render?' + params, '_blank', 'noopener');
 		}),

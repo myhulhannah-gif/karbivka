@@ -616,6 +616,234 @@
 	padding-top: 10px;
 	font-size: 13px;
 }
+
+/* ───── Головна: події, телефон ───── */
+.evt {
+	grid-template-columns: 70px 1fr;
+	gap: 15px;
+	padding: var(--space-md) var(--space-sm);
+}
+.evt .tag {
+	top: -10px;
+	padding: 3px 10px;
+	font-size: 10px;
+}
+.evt .tag .ic {
+	width: 12px;
+	height: 12px;
+}
+.dt {
+	font-size: 15px;
+}
+.dt b {
+	font-size: 32px;
+}
+.dt b::after {
+	width: 32px; /* лінія під числом пропорційно меншому числу */
+}
+.evt h3 {
+	font-size: 15px;
+}
+.evt p {
+	font-size: 15px;
+	gap: 6px;
+}
+.evt p .ic {
+	width: 16px;
+	height: 16px;
+}
+.evt .btn {
+	padding: 10px;
+	font-size: 15px;
+	border-radius: 10px;
+}
+.evt .btn .ic {
+	width: 16px;
+	height: 16px;
+}
+
+.two {
+	padding-bottom: 0;
+}
+.two > div:last-child {
+	padding-bottom: 0;
+}
+.evt:last-of-type {
+	margin-bottom: var(--space-md); /* 25px до лінії футера */
+}
+
+.nw:last-child {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+.two > div:first-child {
+	padding-bottom: var(--space-md); /* 25px від «Читати далі» до розділювача */
+}
+.two > div:last-child {
+	padding-top: 0; /* прибирає подвійний відступ над розділювачем */
+	padding-bottom: 0;
+}
+
+/* ───── Послуги ЦНАП: телефон ───── */
+
+/* Заголовки секцій (.ttl.m має вищу специфічність, тому вказую обидва) */
+.ttl,
+.ttl.m {
+	font-size: 24px;
+}
+
+/* Пошук */
+.srch input {
+	font-size: 15px;
+}
+
+/* Картки послуг */
+.sv h3 {
+	font-size: 18px;
+}
+.sv li {
+	font-size: 15px;
+}
+.sv .btn {
+	width: 90%; /* скидає 70% з блоку 900px */
+	padding: 12px;
+	font-size: 15px;
+}
+
+/* Бланки: іконка + текст зверху, кнопка по центру нижче */
+.fr {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	align-items: start;
+	column-gap: 10px;
+	row-gap: 14px;
+	padding: 18px 0;
+}
+
+.fr h3 {
+	text-align: justify;
+	font-size: 15px;
+}
+.fr small {
+	margin-top: 8px;
+	font-size: 15px;
+}
+.fr .btn {
+	grid-column: 1 / -1;  /* на всю ширину під іконкою і текстом */
+	justify-self: center; /* по центру */
+	padding: 12px 22px;
+	font-size: 15px;
+	border-radius: var(--radius-md);
+}
+
+/* Контакти і розклад: одна колонка замість двох */
+.cg {
+	grid-template-columns: 1fr;
+	padding: 20px 0;
+}
+.cg > div:first-child {
+	padding: 0 20px 24px;
+}
+.cg > div:last-child {
+	padding: 24px 20px 0;
+	border-left: 0;
+	border-top: 1px solid var(--color-accent);
+}
+.cg h4 {
+	margin-bottom: var(--space-sm);
+	font-size: 18px;
+}
+.ci {
+	font-size: 15px;
+	line-height: 1.5;
+}
+.ci .sq {
+	height: 22px;
+}
+.ci .sq img {
+	width: 22px;
+	height: 22px;
+}
+.cg .btn {
+	font-size: 15px;
+}
+#sch li,
+#sch li span,
+.brk {
+	font-size: 15px;
+}
+.tip {
+	padding: 16px var(--space-sm);
+	font-size: 15px;
+}
+.tip::before {
+	margin-right: var(--space-xs);
+}
+
+
+.fr div {
+	align-self: center;
+	min-width: 0;
+}
+/* Іконка в бланках: ромб 30×30 */
+.fr .dia {
+	width: 30px;
+	height: 30px;
+	margin: 7px 10px 7px 7px; /* ліва вершина ромба збігається з початком лінії */
+}
+.fr .dia img {
+	width: 15px;
+	height: 15px;
+}
+
+/* Іконки в картках послуг: 40×40 */
+.sv .sq {
+	width: 40px;
+	height: 40px;
+}
+.sv .sq img {
+	width: 20px;
+	height: 20px;
+}
+
+/* ───── Футер: телефон ───── */
+.fg > div:first-child {
+	padding: 0 0 var(--space-sm);
+}
+.fg h3 {
+	font-size: 22px;
+	text-align: center;
+	line-height: 1.2;
+}
+.fg > div:first-child p {
+	font-size: 18px;
+	text-align: center;
+}
+
+/* Обидва блоки посилань зсунуті від лівого краю */
+.fg > div:nth-child(2),
+.fg > div:nth-child(3) {
+	padding: var(--space-xs) 0 var(--space-xs) 15px;
+}
+.fc h4 {
+	margin-bottom: var(--space-xs);
+	font-size: 18px;
+}
+.fc a,
+.fc p {
+	margin: 8px 0;
+	font-size: 16px;
+}
+.fc a::before,
+.fc p::before {
+	width: 10px;
+	height: 14px;
+}
+
+.cp {
+	padding: var(--space-md) var(--space-sm);
+	font-size: 16px;
+}
 }
 
 /* ───────── Історія: планшет (600–900px) ───────── */
@@ -1006,7 +1234,7 @@
     .fm {
         padding-bottom: 0; /* нижній відступ тепер дає margin кнопки */
     }
-   
+
     .grid3.o {
         display: flex;
         flex-wrap: wrap;
@@ -1061,6 +1289,12 @@
     .ttl {
         font-size: 32px;
     }
+
+	.fm.sent {
+        min-height: 0;
+        padding-bottom: 40px;
+    }
+
 }
 
 /* ───────── Футер: планшет (600–900px) ───────── */
@@ -1152,3 +1386,465 @@
         font-size: 17px;
     }
 }
+
+@media (max-width: 599px) {
+    .ev,
+    .ev.r {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        width: 345px;
+        max-width: 100%;
+        margin-inline: auto;
+    }
+
+
+    /* однаковий порядок і вирівнювання для всіх карток */
+    .ev.r figure,
+    .ev.r .ph-col {
+        order: 0;
+    }
+
+
+    .ev.r > div {
+        text-align: left;
+    }
+
+
+    .ev.r h3 {
+        margin-left: 0;
+        text-align: left;
+    }
+
+
+    /* фото: 345 × 148 разом із рамкою */
+    .ev .pframe {
+        width: 345px;
+        height: 148px;
+        max-width: 100%;
+        padding: 6px;
+        border-width: 2px;
+        outline-width: 2px;
+        outline-offset: -7px;
+    }
+
+
+    .ev .pframe img {
+        height: 100%;
+        aspect-ratio: auto;
+    }
+
+
+    /* текст і заголовок по ширині фото */
+    .ev > div:not(.ph-col) {
+        width: 100%;
+    }
+
+
+    /* роздільник між картками */
+    .dv {
+        width: 345px;
+        max-width: 100%;
+        margin-inline: auto;
+    }
+
+
+    .ev h3 {
+        font-size: 24px;
+    }
+
+
+    .ev h3 b {
+        font-size: 24px;
+    }
+
+
+    .ev h3 span {
+        font-size: 24px;
+    }
+
+
+    .ev p {
+        font-size: 15px;
+    }
+
+
+    .tl-link {
+        font-size: 15px;
+    }
+
+
+    .tl-link {
+        width: 345px;
+        max-width: 100%;
+        margin-inline: auto;
+        text-align: right;
+    }
+
+
+    .dv {
+        padding-inline: 0;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+
+    .wrap {
+        padding-inline: 0;
+        width: 345px;
+        max-width: 100%;
+        margin-inline: auto;
+    }
+
+
+    .ttl,
+    h1.ttl,
+    h2.ttl {
+        font-size: 24px;
+    }
+
+
+    .br-tab {
+        display: inline;
+    }
+
+
+    .ttl {
+        margin-top: -12px; /* піднімає заголовок; від'ємне значення тягне ще вище */
+    }
+
+
+
+
+@media (max-width: 599px) {
+    .tip2 {
+        --o: 3px;
+        --i: 6px;
+        --ext: 5px;
+        box-sizing: border-box;
+        width: 225px;
+        height: 85px;
+        padding: calc(var(--i) + 1px);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+
+    /* фото 82 × 66 */
+    .tip2 .ph {
+        flex: none;
+        width: 82px;
+        height: 66px;
+        aspect-ratio: auto;
+        margin: 0;
+        border-bottom-width: 1px;
+        margin-left: 4px;
+    }
+
+
+    .tip2 .tx {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        text-align: left;
+        white-space: normal;
+    }
+
+
+    .tip2 .tx span {
+        font-size: 18px;
+        position: relative;
+        top: 4px;
+        left: -4px;
+    }
+
+
+    .tip2 .tx a {
+        position: relative;
+        bottom: 0;
+        right: 4px;
+        top: -4px;
+        margin-top: 0;
+        font-size: 13px;
+    }
+}
+
+
+    .tl {
+        width: 313px;
+        max-width: 100%;
+        margin: 30px auto var(--space-lg);
+        aspect-ratio: 313 / 555;
+        max-height: none;
+        margin-bottom: -50px;
+    }
+
+
+    /* нова лінія */
+    .tl::before {
+        background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='313' height='555' viewBox='0 0 313 555' fill='none'><path d='M236.368 120.778L236.096 118.795L236.053 118.801L236.011 118.808L236.368 120.778ZM2.04649 507.673L0.0870343 507.264L0.0521724 507.434L0.0472054 507.608L2.04649 507.673ZM244.951 1.65535L243.836 3.31072C267.106 19.0395 283.756 33.4945 294.265 46.4641C304.799 59.4649 308.96 70.7131 307.83 80.123C306.71 89.4447 300.314 97.5769 288.267 104.201C276.205 110.832 258.731 115.794 236.096 118.795L236.368 120.778L236.639 122.76C259.504 119.729 277.53 114.677 290.206 107.707C302.895 100.731 310.473 91.6751 311.801 80.6169C313.119 69.647 308.201 57.3231 297.369 43.9542C286.511 30.554 269.504 15.8416 246.066 -5.83211e-06L244.951 1.65535ZM236.368 120.778L236.011 118.808C161.758 131.96 116.459 146.325 92.4967 162.197C80.4817 170.155 73.583 178.655 71.2973 187.804C69.0047 196.981 71.4631 206.363 77.1863 215.824C82.8994 225.268 91.9729 234.977 103.275 244.962C114.592 254.961 128.241 265.318 143.188 276.041C173.166 297.546 208.247 320.444 240.873 345.183L242.078 343.591L243.282 341.999C210.64 317.25 175.248 294.127 145.511 272.795C130.601 262.099 117.082 251.834 105.916 241.97C94.7355 232.092 86.0111 222.699 80.6066 213.765C75.212 204.847 73.233 196.577 75.1785 188.789C77.131 180.974 83.1461 173.198 94.7159 165.534C117.923 150.162 162.477 135.897 236.725 122.747L236.368 120.778ZM242.078 343.591L240.873 345.183C273.271 369.747 289.89 394.312 295.807 416.607C301.714 438.866 297.015 459.078 286.348 475.152C275.658 491.26 258.965 503.217 240.945 508.803C222.926 514.389 203.744 513.562 187.967 504.367L186.965 506.094L185.964 507.82C202.911 517.697 223.297 518.466 242.144 512.624C260.99 506.782 278.46 494.287 289.684 477.373C300.931 460.425 305.897 439.046 299.673 415.597C293.459 392.183 276.153 366.923 243.282 341.999L242.078 343.591ZM2.04649 507.673L4.00591 508.083C8.66241 485.364 18.2473 471.913 30.7219 464.815C43.2621 457.679 59.1094 456.739 76.7209 459.893C111.997 466.209 153.193 488.722 185.964 507.82L186.965 506.094L187.967 504.367C155.287 485.321 113.495 462.417 77.4095 455.956C59.3402 452.72 42.4135 453.552 28.7322 461.336C14.9853 469.158 4.90122 483.776 0.0870343 507.264L2.04649 507.673ZM2.04649 507.673L0.0472054 507.608C-0.304949 519.956 1.25809 528.994 6.27351 536.386C11.2603 543.735 19.456 549.148 31.6111 554.751L32.4419 552.935L33.2727 551.119C21.2771 545.59 13.9277 540.556 9.58069 534.15C5.26237 527.785 3.70302 519.758 4.04577 507.739L2.04649 507.673Z' fill='%23CCCC00'/></svg>") center / 100% 100% no-repeat;
+    }
+
+
+    /* ромб 24 × 27 */
+    .yr::before {
+        width: 24px;
+        height: 27px;
+        background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='27' viewBox='0 0 24 27' fill='none'><rect width='17.9335' height='17.93' transform='matrix(0.665931 0.746013 -0.665224 0.746644 11.9272 0)' fill='%23141414'/><path d='M11.9283 2.23899L12.9261 1.11902L11.9272 0L10.9294 1.11997L11.9283 2.23899ZM21.873 13.3796L22.8719 14.4986L23.8697 13.3786L22.8708 12.2596L21.873 13.3796ZM11.9412 24.5269L10.9434 25.6469L11.9423 26.7659L12.9401 25.646L11.9412 24.5269ZM1.99653 13.3864L0.997638 12.2673L-0.000197872 13.3873L0.998699 14.5063L1.99653 13.3864ZM11.9283 2.23899L10.9305 3.35895L20.8751 14.4995L21.873 13.3796L22.8708 12.2596L12.9261 1.11902L11.9283 2.23899ZM21.873 13.3796L20.8741 12.2605L10.9423 23.4079L11.9412 24.5269L12.9401 25.646L22.8719 14.4986L21.873 13.3796ZM11.9412 24.5269L12.939 23.407L2.99437 12.2664L1.99653 13.3864L0.998699 14.5063L10.9434 25.6469L11.9412 24.5269ZM1.99653 13.3864L2.99543 14.5054L12.9272 3.35801L11.9283 2.23899L10.9294 1.11997L0.997638 12.2673L1.99653 13.3864Z' fill='%23CCCC00'/></svg>");
+    }
+
+
+    /* активний ромб: жовта заливка, біла обводка */
+    .yr.act::before {
+        background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='27' viewBox='0 0 24 27' fill='none'><rect width='17.9335' height='17.93' transform='matrix(0.665931 0.746013 -0.665224 0.746644 11.9272 0)' fill='%23CCCC00'/><path d='M11.9283 2.23899L12.9261 1.11902L11.9272 0L10.9294 1.11997L11.9283 2.23899ZM21.873 13.3796L22.8719 14.4986L23.8697 13.3786L22.8708 12.2596L21.873 13.3796ZM11.9412 24.5269L10.9434 25.6469L11.9423 26.7659L12.9401 25.646L11.9412 24.5269ZM1.99653 13.3864L0.997638 12.2673L-0.000197872 13.3873L0.998699 14.5063L1.99653 13.3864ZM11.9283 2.23899L10.9305 3.35895L20.8751 14.4995L21.873 13.3796L22.8708 12.2596L12.9261 1.11902L11.9283 2.23899ZM21.873 13.3796L20.8741 12.2605L10.9423 23.4079L11.9412 24.5269L12.9401 25.646L22.8719 14.4986L21.873 13.3796ZM11.9412 24.5269L12.939 23.407L2.99437 12.2664L1.99653 13.3864L0.998699 14.5063L10.9434 25.6469L11.9412 24.5269ZM1.99653 13.3864L2.99543 14.5054L12.9272 3.35801L11.9283 2.23899L10.9294 1.11997L0.997638 12.2673L1.99653 13.3864Z' fill='white'/></svg>");
+    }
+
+
+    .tl::after {
+        content: '';
+        position: absolute;
+        inset: -10px 0 -10px 0; /* на 10px вище за .tl, щоб верхній кружечок не обрізався */
+        z-index: 1;
+        pointer-events: none;
+
+
+        /* центри кружечків у px від лівого верхнього кута цього псевдоелемента
+           (початок координат на 10px вище за .tl, тому всі y вже +10px) */
+        --x1: 247px; --y1: 12px;     /* верхній кінець (було 2px -> -2px, +10px) */
+        --x2: 32px;  --y2: 563px;   /* нижній кінець (553px + 10px) */
+
+
+        --c: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'><circle cx='5.97891' cy='5.97891' r='4.47891' fill='%23CCCC00' stroke-width='3' stroke='%23CCCC00'/></svg>");
+        background:
+            var(--c) calc(var(--x1) - 6px) calc(var(--y1) - 6px) / 12px 12px no-repeat,
+            var(--c) calc(var(--x2) - 6px) calc(var(--y2) - 6px) / 12px 12px no-repeat;
+    }
+
+
+    .yr.y1 {
+        transform: translate(-100%, -50%); /* рік повністю ліворуч від точки x, y */
+        padding-right: 15px;               /* місце під ромб: 12px (півширини) + 8px проміжок */
+        text-align: right;
+    }
+
+
+    /* ромб: центр точно в точці x, y, на висоті середини тексту */
+    .yr.y1::before {
+        left: 100%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+
+    .yr.y2 {
+        transform: translate(-100%, -50%); /* рік повністю ліворуч від точки x, y */
+        padding-right: 15px;               /* місце під ромб: 12px + 8px проміжок */
+        text-align: right;
+    }
+
+
+    .yr.y2::before {
+        left: 100%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+
+    .yr.y3 {
+        transform: translate(0, -50%); /* рік повністю праворуч від точки x, y */
+        padding-left: 15px;            /* місце під ромб: 12px (півширини) + 8px проміжок */
+        text-align: left;
+    }
+
+
+    /* ромб: центр у точці x, y, на висоті середини тексту */
+    .yr.y3::before {
+        left: 0;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+
+    .yr.y4 {
+        transform: translate(0, -50%); /* рік праворуч від точки x, y */
+        padding-left: 15px;            /* 12px (півширини ромба) + 8px проміжок */
+        text-align: left;
+    }
+
+
+    .yr.y4::before {
+        left: 0;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+
+    .yr.y5 {
+        transform: translate(0, -50%); /* рік праворуч від точки x, y */
+        padding-left: 15px;            /* 12px (півширини ромба) + 8px проміжок */
+        text-align: left;
+    }
+
+
+    .yr.y5::before {
+        left: 0;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* ===== Мобільна версія (до 600px) ===== */
+@media (max-width: 600px) {
+    .fm {
+        width: 100%;
+        max-width: 359px;
+        min-height: 897px;
+        margin: 30px auto 0;
+        padding: 30px 15px;
+        box-sizing: border-box;
+    }
+
+    .fm h4 {
+        font-size: 18px;
+    }
+
+    .fm .types b,
+    .fm .types button,
+    .fm input:not([type='checkbox']),
+    .fm .lb,
+    .fm select,
+    .fm textarea,
+    .fm .chk,
+    .fm .btn.c {
+        font-size: 15px;
+    }
+
+    .fm .err {
+        font-size: 12px;
+    }
+
+    .fm.sent .okm {
+        font-size: 18px;
+    }
+
+    .fm .types {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .fm .types button {
+        padding: 10px 10px 10px 6px;
+    }
+
+    .ttl + .dv {
+        width: 100%;
+        max-width: 359px;
+        min-width: 0;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+    }
+
+    .fm h4 {
+        margin: 20px 0 8px;
+    }
+
+    .fm .g2 {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    .fm input:not([type='checkbox']) {
+        padding: 6px 0;
+    }
+
+    .fm .lb {
+        margin-top: 10px;
+    }
+
+    .fm select,
+    .fm textarea {
+        margin-top: 4px;
+        padding: 8px 12px;
+    }
+
+    .fm textarea {
+        height: 150px;
+    }
+
+    .fm .chk {
+        margin: 15px 0 4px;
+        gap: 10px;
+    }
+
+    .fm .err {
+        min-height: 0;
+        margin-top: 2px;
+    }
+
+    .fm {
+        padding-top: 15px;
+    }
+
+    .fm .btn.c {
+        display: block;
+        text-transform: lowercase;
+    }
+
+    .fm .btn.c::first-letter {
+        text-transform: uppercase;
+    }
+
+    .fm.sent > *:not(.okm) {
+        display: none !important;
+    }
+
+    .fm.sent {
+        min-height: 0;
+        padding-top: 30px;
+    }
+
+    .grid3.o .card {
+        width: 100%;
+        max-width: 367px;
+        height: 140px;
+        min-height: 140px;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+        position: relative;
+        padding: 20px 25px 20px 70px;
+    }
+
+    .grid3.o .card h3 {
+        display: block;
+        align-items: center;
+        gap: 15px;
+        font-size: 20px;
+    }
+
+    .grid3.o .card p {
+        font-size: 15px;
+        margin: 12px 0;
+    }
+
+    .grid3.o .card .dia {
+        position: absolute;
+        left: 15px;
+        top: 17px;
+        width: 30px;
+        height: 30px;
+        margin: 0;
+    }
+
+    .grid3.o .card .dia img {
+        width: 100%;
+        height: 100%;
+    }
+
+
+}
+

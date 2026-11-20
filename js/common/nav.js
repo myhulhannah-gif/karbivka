@@ -1,5 +1,4 @@
 // Мобільне меню (планшет і телефон) та приховування зображень, яких ще немає
-
 const burger = $('.burger');
 const setMenu = (open) => {
 	document.body.classList.toggle('menu-open', open);

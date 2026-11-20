@@ -1,5 +1,4 @@
-// Допоміжні функції (глобальні, підключаються першими)
-
+// Допоміжні функції
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 function el(html) {

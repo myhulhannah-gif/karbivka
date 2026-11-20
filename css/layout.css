@@ -168,3 +168,230 @@ nav a.on::after {
     font-size: var(--size-p);
     font-weight: var(--fw-regular);
 }
+
+/* ═════════════ Соцмережі ═════════════
+   ПК (від 901px): кнопка-глобус .soc
+   Планшет і телефон (до 900px): висувна панель .sp знизу зліва */
+
+
+/* ───── Кружки з іконками (спільне): жовтий фон, чорна іконка ───── */
+.soc-list a,
+.sp a {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--color-accent);
+    background: var(--color-accent);
+}
+.soc-list a img,
+.sp a img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    transition: transform 0.2s, filter 0.2s;
+}
+
+/* Наведення (лише там, де є миша): іконка збільшується, позаду біле світіння */
+@media (hover: hover) {
+    .soc-list a:hover img,
+    .sp a:hover img {
+        transform: scale(1.25);
+        filter: drop-shadow(0 0 3px #fff) drop-shadow(0 0 6px #fff);
+    }
+    .soc-list a:hover,
+    .sp a:hover {
+        background: #b3b300;
+    }
+}
+/* На дотик те саме, поки палець тисне */
+.soc-list a:active img,
+.sp a:active img {
+    transform: scale(1.25);
+    filter: drop-shadow(0 0 3px #fff) drop-shadow(0 0 6px #fff);
+}
+.soc-list a:focus-visible,
+.sp a:focus-visible,
+.soc-btn:focus-visible,
+.sp-tab:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+
+/* ───── ПК: кнопка-глобус ───── */
+.soc {
+    position: fixed;
+    left: max(16px, env(safe-area-inset-left, 0px));
+    bottom: max(20px, env(safe-area-inset-bottom, 0px));
+    z-index: 90; /* нижче за мобільне меню (99–100) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.soc-btn {
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 2px solid var(--color-accent);
+    background: var(--color-bg-dark);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.2s;
+}
+.soc-btn:hover {
+    box-shadow: 0 0 14px rgba(204, 204, 0, 0.45);
+}
+.globe {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    transition: transform 0.6s ease;
+}
+.soc.open .globe {
+    transform: rotate(360deg); /* глобус робить оберт */
+}
+
+/* Панель із кружками над кнопкою */
+.soc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px; /* 40 + 2×8 = 56px, як ширина кнопки */
+    border: 1px solid var(--color-accent);
+    border-radius: 28px;
+    background: var(--color-bg-dark);
+    transform-origin: bottom center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px) scale(0.85);
+    transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
+}
+.soc.open .soc-list {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+}
+
+
+/* Планшет і телефон: висувна панель знизу зліва */
+.sp {
+    display: none;
+    position: fixed;
+    left: 0;
+    bottom: max(16px, env(safe-area-inset-bottom, 0px));
+    z-index: 90;
+    width: clamp(56px, 15vw, 72px);
+    padding: 8px 0;
+    background: var(--color-bg-dark);
+    border: 1px solid var(--color-accent);
+    border-left: 0;
+    transition: transform 0.3s;
+}
+.sp-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.sp-tab {
+    position: absolute;
+    left: 100%;
+    bottom: 0;
+    width: 24px;
+    height: 48px;
+    border-radius: 0 8px 8px 0;
+    background: var(--color-accent);
+}
+.sp-tab::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border-left: 2px solid var(--color-bg);
+    border-bottom: 2px solid var(--color-bg);
+    transform: translate(-30%, -50%) rotate(45deg);
+    transition: transform 0.3s;
+}
+.sp.closed {
+    transform: translateX(-100%);
+}
+.sp.closed .sp-tab::before {
+    transform: translate(-70%, -50%) rotate(225deg);
+}
+
+body.menu-open .soc,
+body.menu-open .sp {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .soc {
+        display: none;
+    }
+    .sp {
+        display: block;
+    }
+}
+
+/* Телефон (до 600px) */
+@media (max-width: 600px) {
+    .sp {
+        width: 44px;
+        bottom: max(12px, env(safe-area-inset-bottom, 0px));
+        padding: 6px 0;
+        background: var(--color-bg-dark);
+    }
+    .sp-list {
+        gap: 6px;
+    }
+    .sp a {
+        width: 32px;
+        height: 32px;
+        border-width: 1px;
+    }
+    .sp a img {
+        width: 18px;
+        height: 18px;
+    }
+    .sp-tab {
+        width: 20px;
+        height: 40px;
+    }
+}
+
+/* Телефон горизонтально: панель вужча, іконки менші, щоб вміститись по висоті */
+@media (max-width: 900px) and (max-height: 450px) {
+    .sp {
+        bottom: 8px;
+        padding: 4px 0;
+    }
+    .sp-list {
+        gap: 4px;
+    }
+    .sp a {
+        width: 32px;
+        height: 32px;
+    }
+    .sp a img {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .globe,
+    .soc-list,
+    .sp,
+    .sp-tab::before,
+    .soc-list a img,
+    .sp a img {
+        transition: none;
+    }
+}
